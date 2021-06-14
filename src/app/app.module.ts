@@ -1,18 +1,48 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AdminService } from './admin.service';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,routingComponents} from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ViewClassifiedsComponent } from './components/view-classifieds/view-classifieds.component';
+import { ContentPageComponent } from './components/content-page/content-page.component';
+import { WelcomeAdminComponent } from './components/welcome-admin/welcome-admin.component';
+import { MyclassifiedsComponent } from './components/myclassifieds/myclassifieds.component';
+import { AddCitydetailsComponent } from './components/add-citydetails/add-citydetails.component';
+import { PostClassifiedsComponent } from './components/post-classifieds/post-classifieds.component';
+import { UpdateCitydetailsComponent } from './components/update-citydetails/update-citydetails.component';
+import { DeleteClassifiedsComponent } from './components/delete-classifieds/delete-classifieds.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
+  imports:[ BrowserModule,
     AppRoutingModule
+   
+    ],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    routingComponents,
+    UserLoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    ViewClassifiedsComponent,
+    ContentPageComponent,
+    WelcomeAdminComponent,
+    MyclassifiedsComponent,
+    AddCitydetailsComponent,
+    PostClassifiedsComponent,
+    UpdateCitydetailsComponent,
+    DeleteClassifiedsComponent
+   
+    
   ],
-  providers: [],
+
+  providers: [AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

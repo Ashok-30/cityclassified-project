@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css"
+        type="text/css" media="all">
+
+</head>
+
+<body>
+    <fieldset class="userinput">
+        <legend>Register</legend>
+        <form action="#">
+            <table>
+                <tr>
+                    <td><label for="userName">Enter UserName</label> </td>
+                    <td><input class="element" type="text" name="userName" placeholder="Enter User Name" required> </td>
+                </tr>
+                <tr>
+                    <td><label for="firstName">Enter FirstName</label> </td>
+                    <td><input class="element" type="text" name="firstName" placeholder="Enter First Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Enter LastName</label></td>
+                    <td><input class="element" type="text" name="lastName" placeholder="Enter Last Name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Enter Password</label> </td>
+                    <td><input class="element" type="password" id="password" name="password"
+                            placeholder="Enter Password" required>
+                        &nbsp; <i class="fa fa-eye" id="eye" onclick="toggle()"></i> </td>
+                </tr>
+                <tr>
+                    <td> <label for="dateOfBirth">Enter Date Of Birth</label> </td>
+                    <td> <input class="element" type="text" id="date-picker" name="dateOfBirth"
+                            placeholder="Enter Date Of Birth" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phoneNumber">Enter PhoneNumber</label> </td>
+                    <td> <input class="element" type="text" name="phoneNumber" pattern="[6-9]{1}[0-9]{9}"
+                            placeholder="Enter Phone Number" required></td>
+                </tr>
+                <tr>
+                    <td><label for="cities">Choose City</label></td>
+                    <td><select name="cities" id="cities" class="custom-select element">
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Mumbai">Mumbai</option>
+                        </select> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="submit" routerLink="/user-login"routerLinkActive="active" type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+
+<script>
+    function toggle() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+            document.getElementById('eye').style.color = "red";
+        } else {
+            x.type = "password";
+            document.getElementById('eye').style.color = "black";
+        }
+    }
+
+    $(document).ready(function () {
+        $("#date-picker").datepicker({
+            //numberOfMonths: 3,
+            dateFormat: "dd MM, yy",
+            showButton : true,
+            changeMonth : true,
+            changeYear : true
+        });
+    });
+</script>
+
+
+</html>
