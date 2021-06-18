@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Content Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        ::placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            padding: 10px;
+        }
+
+        .search {
+            padding: 5px;
+            margin: 10px 10px 10px 10px;
+            border: 2px solid #368BC1;
+        }
+
+        input.search:focus {
+            outline: none;
+            border-color: teal;
+        }
+
+        label {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        i.custom-search {
+            color: white;
+        }
+
+        button.search {
+            background-color: #368BC1;
+            border: 2px solid teal;
+            padding: 5px 12px 5px 12px;
+        }
+
+        button.myClassifieds {
+            padding: 10px 20px 10px 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: orchid;
+            font-family: 'Josefin Sans', sans-serif;
+            border: 2px solid white;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            margin-top: 7%;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 5%;
+        }
+
+        .title-name {
+            letter-spacing: 1.2px;
+            font-family: 'Varela Round', sans-serif;
+            font-size: 2em;
+            color: #368BC1;
+            border-bottom: solid #368BC1;
+            margin-right: 30px;
+        }
+
+        .custom-select {
+            font-family: 'Josefin Sans', sans-serif;
+            padding: 5px;
+        }
+
+        .city-details {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            padding: 50px;
+            border: 2px solid blueviolet;
+            width: 500px;
+            margin: auto;
+            margin-bottom: 3%;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.3em;
+        }
+
+        .classifieds {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            padding: 50px;
+            border: 2px solid blueviolet;
+            width: 500px;
+            margin: auto;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <span class="title-name">City Classifieds</span>
+        <input type="text" class="search" name="searchByCategory" placeholder="Search By Category"><button
+            class="search" type="button" onclick=""><i class="fa fa-search custom-search"></i></button>
+        <input type="text" class="search" name="searchByType" placeholder="Search By Type"><button class="search"
+            type="button" onclick=""><i class="fa fa-search custom-search"></i></button>
+        <input type="text" class="search" name="searchByClassifiedId" placeholder="Search By ClassifiedId"><button
+            class="search" type="button" onclick=""><i class="fa fa-search custom-search"></i></button>
+        <label for="cities">Change City</label> &nbsp;
+        <select name="cities" id="cities" class="custom-select" onchange="">
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Mumbai">Mumbai</option>
+        </select>
+    </div>
+    <div class="myC-btn">
+        <button class="myClassifieds" onclick="">My Classifieds</button>
+    </div>
+    <div class="city-details">
+        City Details Will be shown here..
+    </div>
+    <div class="classifieds">
+        Classifieds will be shown here..
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Welcome Admin</title>
+    <style>
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: chocolate;
+            font-weight: 1000;
+            font-size: 2.5em;
+            text-shadow: 2px 2px #ccc;
+            text-align: center;
+        }
+
+        .search {
+            padding: 5px;
+            margin: 10px 10px 10px 10px;
+            border: 2px solid chocolate;
+        }
+
+        input.search:focus {
+            outline: none;
+            border-color: chocolate;
+        }
+
+        i.custom-search {
+            color: white;
+        }
+
+        button.search {
+            background-color: chocolate;
+            border: 2px solid brown;
+            padding: 5px 12px 5px 12px;
+        }
+
+        button.search:hover {
+            border-color: chocolate;
+        }
+
+        table {
+            padding: 20px;
+            margin: auto;
+        }
+
+        .btn {
+            padding: 15px 30px 15px 30px;
+            background-color: chocolate;
+            outline: none;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            font-family: 'Josefin Sans', sans-serif;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            border-color: brown;
+        }
+
+        td.column {
+            padding: 60px;
+        }
+
+        ::placeholder {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME ADMIN</h1>
+    <table>
+        <tr>
+            <td>
+                <input type="search" class="search" placeholder="Search by Classified Id" name="searchByClassifiedId">
+                <button class="search" type="button" onclick=""><i class="fa fa-search custom-search"></i></button>
+            </td>
+            <td><input type="search" class="search" placeholder="Search by Category" name="searchByCategory">
+                <button class="search" type="button" onclick=""><i class="fa fa-search custom-search"></i></button>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td class="column">
+                <button class="btn" type="button" onclick="">Add City Details</button>
+            </td>
+            <td class="column">
+                <button class="btn" type="button" onclick="">View Classified</button>
+            </td>
+            <td class="column">
+                <button class="btn" type="button" onclick="">Post Classified</button>
+            </td>
+        </tr>
+
+    </table>
+    <table>
+        <tr>
+            <td class="column">
+                <button class="btn" type="button" onclick="">Update Details</button>
+            </td>
+            <td class="column">
+                <button class="btn" type="button" onclick="">Delete Classified</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
