@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>View Classifieds</title>
+
+</head>
+
+<body>
+    <h1>VIEW CLASSIFIEDS</h1>
+    <div class="dropdown">
+        <form #viewForm="ngForm">
+        <select name="cities" id="cities" class="custom-select" >
+            <option value="none" selected disabled hidden ngModel #view="ngModel" >
+                Choose City
+            </option>
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Mumbai">Mumbai</option>
+        </select>
+    </form>
+    </div>
+    <div class="classifieds">
+        Classified 1
+    </div>
+    <div class="classifieds">
+        Classifieds 2
+    </div>
+    <div class="classifieds">
+        Classifieds 3
+    </div>
+</body>
+
+</html>

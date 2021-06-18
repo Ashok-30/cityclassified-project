@@ -1,0 +1,33 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Admin Login</legend>
+        <form #adminForm="ngForm">
+            <table>
+                <tr>
+                    <td><label for="username">Admin Username</label> </td>
+                    <td><input class="element" type="text" name="adminname" ngModel #adminname="ngModel" placeholder="Enter Username" required> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="adminname.invalid && (adminname.dirty || adminname.touched)" >Name is mandatory</mat-error></td></tr>
+                <tr>
+                    <td><label for="password">Admin Password</label> </td>
+                    <td><input class="element" type="password" id="password" name="password" ngModel #password="ngModel"
+                            placeholder="Enter Password" required>
+                        &nbsp; <i class="fa fa-eye" id="eye" (click)="toggle()"></i> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="password.invalid && (password.dirty || password.touched)" >Password is mandatory</mat-error></td></tr>
+                
+                <tr>
+                    <td> 
+                        <a routerLink="/forgot-password"routerLinkActive="active">Forgot Password?</a>
+                    </td>
+                    <td><input class="submit" routerLink="/welcome-admin"routerLinkActive="active" 
+                        type="submit" value="Submit" (click)="admin(adminForm)"></td>
+                </tr>
+               
+            </table>
+        </form>
+    </fieldset>
+</body>
+
+
+

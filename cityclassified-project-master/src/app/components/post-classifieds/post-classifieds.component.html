@@ -1,0 +1,57 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Post Classified</legend>
+        <form #postclassified="ngForm">
+            <table>
+                <tr>
+                    <td><label for="cities">Choose City</label></td>
+                    <td><select name="cities" id="cities" class="custom-select element" ngModel #city="ngModel">
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Mumbai">Mumbai</option>
+                        </select> </td>
+                        
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="city.invalid && (city.dirty || city.touched)" >Password is mandatory</mat-error></td></tr>
+                <tr>
+                    <td><label for="heading">Enter Heading</label> </td>
+                    <td><input class="element" type="text" name="heading" placeholder="Enter Heading" required ngModel #heading="ngModel"> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="heading.invalid && (heading.dirty || heading.touched)" >Enter Heading</mat-error></td></tr>
+                <tr>
+                    <td><label for="category">Enter Category</label> </td>
+                    <td><input class="element" type="text" name="category" placeholder="Enter Category" required ngModel #category="ngModel"> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="category.invalid && (category.dirty || category.touched)" >Enter Category</mat-error></td></tr>
+                <tr>
+                    <td><label for="description">Enter Description</label></td>
+                    <td><textarea class="element" type="textarea" name="description" rows="6" cols="50"
+                            placeholder="Enter Description" required ngModel #description="ngModel"></textarea> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="description.invalid && (description.dirty || description.touched)" >Enter Description</mat-error></td></tr>
+                <tr>
+                    <td><label for="price">Enter Price</label> </td>
+                    <td><input class="element" type="number" step="0.01" name="price" placeholder="Enter Price"
+                            required ngModel #price="ngModel"> </td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="price.invalid && (price.dirty || price.touched)" >Enter Price</mat-error></td></tr>
+                <tr>
+                    <td><label for="phoneNumber">Enter PhoneNumber</label> </td>
+                    <td> <input class="element" type="text" name="phoneNumber" pattern="[6-9]{1}[0-9]{9}"
+                            placeholder="Enter PhoneNumber" required ngModel #phonenumber="ngModel"></td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" >Enter Phone Number</mat-error></td></tr>
+                <tr>
+                    <td> <label for="email">Enter Email Id</label> </td>
+                    <td> <input class="element" type="email" name="email" placeholder="Enter Email Id" required ngModel #email="ngModel"></td>
+                </tr>
+                <tr><td></td><td><mat-error *ngIf="email.invalid && (email.dirty || email.touched)" >Enter E-mail</mat-error></td></tr>
+                <tr>
+                    <td></td>
+                    <td><input class="submit" type="submit" value="Submit" (click)="post(postclassified)"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
