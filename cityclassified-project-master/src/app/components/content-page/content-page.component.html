@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Content Page</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
 <form #contentpage="ngForm">
 
     <body>
@@ -43,9 +31,9 @@
             </table>
         </div>
         <div class="myC-btn">
-            <button class="myClassifieds" routerLink="/myclassifieds" routerLinkActive=active
+            <button class="myClassifieds" routerLink="/myclassifieds/{{currentUser}}" routerLinkActive=active
                 (click)="content(contentpage)">My Classifieds</button>
-            <button class="myClassifieds" routerLink="/post-classifieds" routerLinkActive=active
+            <button class="myClassifieds" routerLink="/post-classifieds/{{currentUser}}" routerLinkActive=active
                 (click)="content(contentpage)">Post Classifieds</button>
         </div>
         <div class="city-details">
@@ -58,4 +46,3 @@
     </body>
 </form>
 
-</html>

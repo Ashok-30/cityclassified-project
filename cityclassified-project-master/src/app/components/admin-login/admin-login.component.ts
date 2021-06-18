@@ -12,6 +12,7 @@ export class AdminLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   admin(adminForm:NgForm){
     console.log(adminForm.value,adminForm.valid)
 

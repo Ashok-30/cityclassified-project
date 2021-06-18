@@ -25,7 +25,7 @@ import { WelcomeComponent } from "./components/welcome/welcome.component";
      {path:'welcome-admin',component:WelcomeAdminComponent},
      {path:'myclassifieds',component:MyclassifiedsComponent},
      {path:'add-citydetails',component:AddCitydetailsComponent},
-     {path:'post-classifieds',component:PostClassifiedsComponent},
+     {path:'post-classifieds/:username',component:PostClassifiedsComponent},
      {path:'update-citydetails',component:UpdateCitydetailsComponent},
      {path:'delete-classifieds',component:DeleteClassifiedsComponent}
   
