@@ -1,0 +1,76 @@
+<a routerLink="/content-page/{{currentUser}}">Back to Content Page</a>
+<p>My Classifieds</p> 
+<table *ngFor="let classified of userClassifieds">
+    <tr>
+        <td>
+            Classified Id
+        </td>
+        <td>
+            {{ classified?.id }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Heading
+        </td>
+        <td>
+            {{ classified?.heading }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description
+        </td>
+        <td>
+            {{ classified?.description }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Category
+        </td>
+        <td>
+            {{ classified?.category }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Price
+        </td>
+        <td>
+            Rs. {{classified?.price }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Contact Mail
+        </td>
+        <td>
+            {{ classified?.contactMail }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Contact Number
+        </td>
+        <td>
+            {{ classified?.contactNumber }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Posted Date
+        </td>
+        <td>
+            {{ classified?.postedDate | date : 'medium' }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-green">Update</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-red">Delete</button>
+        </td>
+    </tr>
+</table>
