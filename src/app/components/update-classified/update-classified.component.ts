@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClassifiedsService } from '../services/classifieds.service';
+import { ClassifiedsService } from '../../services/classifieds.service';
 
 @Component({
   selector: 'app-update-classified',
@@ -20,6 +20,7 @@ export class UpdateClassifiedComponent implements OnInit {
     this.router.paramMap.subscribe(params => {
       this.classified = params.get('classified')
       this.classified = JSON.parse(this.classified)
+      this.classified.postedDate = new Date()
       //console.log(this.classified)
     })
   }

@@ -1,7 +1,8 @@
+  
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClassifiedsService } from '../services/classifieds.service';
+import { AdminClassifiedService } from 'src/app/services/admin-classified.service';
 
 @Component({
   selector: 'app-post-classifieds-admin',
@@ -13,7 +14,7 @@ export class PostClassifiedsAdminComponent implements OnInit {
   currentAdminId: number = 0;
   admin: any = {}
 
-  constructor(private router: ActivatedRoute, private service: ClassifiedsService, private routeTo: Router) { }
+  constructor(private router: ActivatedRoute, private service: AdminClassifiedService, private routeTo: Router) { }
 
   post(postclassified:NgForm){
     console.log(postclassified.value)

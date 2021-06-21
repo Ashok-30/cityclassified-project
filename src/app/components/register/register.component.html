@@ -6,11 +6,10 @@
                 <tr>
                     <td><label for="userName">Enter UserName</label> </td>
                     <td><input class="element" formControlName="userName" type="text" name="userName"
-                            placeholder="Enter User Name" required>
+                            placeholder="Spaces not allowed" required>
                         <div class="error-msg"
                             *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
-                            User Name is not available. <br>
-                            User Name cannot contain space.
+                            User Name is already taken. <br>
                         </div>
                     </td>
 

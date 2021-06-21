@@ -21,8 +21,8 @@ import { DeleteClassifiedsComponent } from './components/delete-classifieds/dele
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { PostClassifiedsAdminComponent } from './post-classifieds-admin/post-classifieds-admin.component';
-import { UpdateClassifiedComponent } from './update-classified/update-classified.component';
+import { PostClassifiedsAdminComponent } from './components/post-classifieds-admin/post-classifieds-admin.component';
+import { UpdateClassifiedComponent } from './components/update-classified/update-classified.component';
 @NgModule({
   imports: [BrowserModule,
     AppRoutingModule,

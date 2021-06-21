@@ -13,8 +13,8 @@ import { UserLoginComponent } from "./components/user-login/user-login.component
 import { ViewClassifiedsComponent } from "./components/view-classifieds/view-classifieds.component";
 import { WelcomeAdminComponent } from "./components/welcome-admin/welcome-admin.component";
 import { WelcomeComponent } from "./components/welcome/welcome.component";
-import { PostClassifiedsAdminComponent } from "./post-classifieds-admin/post-classifieds-admin.component";
-import { UpdateClassifiedComponent } from "./update-classified/update-classified.component";
+import { PostClassifiedsAdminComponent } from "./components/post-classifieds-admin/post-classifieds-admin.component";
+import { UpdateClassifiedComponent } from "./components/update-classified/update-classified.component";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
@@ -27,7 +27,7 @@ import { UpdateClassifiedComponent } from "./update-classified/update-classified
      {path:'welcome-admin/:adminid',component:WelcomeAdminComponent},
      {path: 'post-classifieds-admin/:adminid', component:PostClassifiedsAdminComponent},
      {path:'myclassifieds/:username',component:MyclassifiedsComponent},
-     {path:'add-citydetails',component:AddCitydetailsComponent},
+     {path:'add-citydetails/:adminid',component:AddCitydetailsComponent},
      {path:'post-classifieds/:username',component:PostClassifiedsComponent},
      {path:'update-citydetails',component:UpdateCitydetailsComponent},
      {path:'delete-classifieds',component:DeleteClassifiedsComponent},
