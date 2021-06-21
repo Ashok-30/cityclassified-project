@@ -1,0 +1,80 @@
+fieldset {
+    margin: auto;
+    width: 57%;
+    border-color: chocolate;
+    box-shadow: -10px -10px 15px rgba(255,255,255,0.55),
+                10px 10px 15px rgba(70,70,70,0.12);
+}
+
+.custom-select{
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 5px;
+}
+
+body{
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+legend{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2em;
+    color: white;
+text-shadow: -1px -1px 0 chocolate, 1px -1px 0 chocolate, -1px 1px 0 chocolate, 1px 1px 0 chocolate;
+}
+
+table {
+    font-family: 'Josefin Sans', sans-serif;
+    width: 100%;
+    padding: 5px 40px 5px 40px;
+}
+
+td {
+    padding: 10px;
+}
+
+label{
+    font-weight: 600;
+}
+
+.element {
+    padding: 7px;
+    margin: 5px 0px 5px 0px;
+    border: 1px solid white;
+    border-radius: 7px;
+    box-shadow:inset -10px -10px 15px rgba(255,255,255,0.55),
+               inset 10px 10px 15px rgba(70,70,70,0.12);
+    outline: none;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: chocolate;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: chocolate;
+}
+
+select:focus{
+    outline: none !important;
+    border-color: chocolate;
+}
+
+.submit {
+    color: white;
+    background-color: chocolate;
+    border: 2px solid white;
+    border-radius: 10%;
+    padding: 13px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.submit:hover{
+    cursor: pointer;
+}
+
+::placeholder {
+    font-family: 'Josefin Sans', sans-serif;
+}

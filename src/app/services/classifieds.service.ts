@@ -19,4 +19,8 @@ export class ClassifiedsService {
     return this.http.post(this.apiUrl + '/classifieds/classified', post);
   }
 
+  updateClassified(classified: any){
+    return this.http.put(this.apiUrl + '/classifieds/classified', classified);
+  }
+
 }

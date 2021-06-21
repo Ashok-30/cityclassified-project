@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PostClassifiedsAdminComponent } from './post-classifieds-admin/post-classifieds-admin.component';
+import { UpdateClassifiedComponent } from './update-classified/update-classified.component';
 @NgModule({
   imports: [BrowserModule,
     AppRoutingModule,
@@ -45,7 +46,8 @@ import { PostClassifiedsAdminComponent } from './post-classifieds-admin/post-cla
     PostClassifiedsComponent,
     UpdateCitydetailsComponent,
     DeleteClassifiedsComponent,
-    PostClassifiedsAdminComponent
+    PostClassifiedsAdminComponent,
+    UpdateClassifiedComponent
 
 
   ],
