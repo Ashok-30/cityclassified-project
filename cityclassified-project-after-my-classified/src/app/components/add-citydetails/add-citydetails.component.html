@@ -43,6 +43,13 @@
             </tr>
             <tr><td></td><td><mat-error *ngIf="address.invalid && (address.dirty || address.touched)" >Enter Address</mat-error></td></tr>
             <tr>
+                <td><label for="rating">Enter Rating</label></td>
+                <td><input class="element" type="number" name="rating" placeholder="Enter Rating"  max="5" step="1"
+                        required ngModel #rating="ngModel"></td>
+            </tr>
+            <tr><td></td><td><mat-error *ngIf="rating.invalid && (rating.dirty || rating.touched)" >Enter Address</mat-error></td></tr>
+            
+            <tr>
                 <td></td>
                 <td><input class="submit" type="submit" value="Submit" ></td>
             </tr>
