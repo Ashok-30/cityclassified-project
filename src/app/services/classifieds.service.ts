@@ -23,4 +23,8 @@ export class ClassifiedsService {
     return this.http.put(this.apiUrl + '/classifieds/classified', classified);
   }
 
+  deleteClassified(classifiedId: number){
+    return this.http.delete(this.apiUrl + '/classifieds/classified/' + classifiedId,  {responseType: 'text'});
+  }
+
 }

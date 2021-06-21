@@ -28,5 +28,18 @@ export class MyclassifiedsComponent implements OnInit {
     this.routeTo.navigate(['/update-classified/' + this.currentUser, JSON.stringify(classified)])
   }
 
+  onDelete(classified: any){
+    if(confirm("Do you really want to delete this? ")) {
+      this.service.deleteClassified(classified.id)
+        .subscribe(response => {
+          alert("Deleted Successfully")
+          this.userClassifieds = this.userClassifieds.filter(eachClassified => eachClassified.id != classified.id)
+        }, error => {
+          alert("Some error occured")
+          console.log(error)
+        })
+    }
+  }
+
 
 }
