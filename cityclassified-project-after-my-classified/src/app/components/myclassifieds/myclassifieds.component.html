@@ -1,5 +1,6 @@
 <a routerLink="/content-page/{{currentUser}}">Back to Content Page</a>
 <p>My Classifieds</p> 
+<div class="empty-msg" *ngIf="userClassifieds.length == 0">Wow .. Such empty :(</div>
 <table *ngFor="let classified of userClassifieds">
     <tr>
         <td>
@@ -67,10 +68,10 @@
     </tr>
     <tr>
         <td>
-            <button type="button" class="btn btn-green">Update</button>
+            <button type="button" class="btn btn-green" (click)="onUpdate(classified)">Update</button>
         </td>
         <td>
-            <button type="button" class="btn btn-red">Delete</button>
+            <button type="button" class="btn btn-red" (click)="onDelete(classified)">Delete</button>
         </td>
     </tr>
 </table>

@@ -34,21 +34,24 @@
                 Classified</button>
         </td>
         <td class="column">
-            <button class="btn" routerLink="/post-classifieds-admin/{{ currentAdminId }}" routerLinkActive="active" type="button" onclick="">Post
+            <button class="btn" routerLink="/post-classifieds-admin/{{ currentAdminId }}" routerLinkActive="active" type="button" onclick="">Post Admin
                 Classified</button>
         </td>
     </tr>
 
-</table>
-<table>
+
     <tr>
         <td class="column">
-            <button class="btn" routerLink="/update-citydetails" routerLinkActive="active" type="button"
+            <button class="btn" routerLink="/update-citydetails/{{currentAdminId}}"routerLinkActive="active" type="button"
                 onclick="">Update Details</button>
         </td>
         <td class="column">
-            <button class="btn" routerLink="/delete-classifieds" routerLinkActive="active" type="button"
+            <button class="btn" routerLink="/delete-classifieds/{{currentAdminId}}" routerLinkActive="active" type="button"
                 onclick="">Delete Classified</button>
+        </td>
+        <td class="column">
+            <button class="btn" routerLink="/delete-admin-classified/{{currentAdminId}}" routerLinkActive="active" type="button"
+                onclick="">Delete Admin Classified</button>
         </td>
     </tr>
 </table>

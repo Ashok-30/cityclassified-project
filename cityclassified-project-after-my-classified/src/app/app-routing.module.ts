@@ -13,7 +13,9 @@ import { UserLoginComponent } from "./components/user-login/user-login.component
 import { ViewClassifiedsComponent } from "./components/view-classifieds/view-classifieds.component";
 import { WelcomeAdminComponent } from "./components/welcome-admin/welcome-admin.component";
 import { WelcomeComponent } from "./components/welcome/welcome.component";
-import { PostClassifiedsAdminComponent } from "./post-classifieds-admin/post-classifieds-admin.component";
+import { PostClassifiedsAdminComponent } from "./components/post-classifieds-admin/post-classifieds-admin.component";
+import { UpdateClassifiedComponent } from "./components/update-classified/update-classified.component";
+import { DeleteAdminClassifiedComponent } from "./components/delete-admin-classified/delete-admin-classified.component";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
@@ -28,13 +30,15 @@ import { PostClassifiedsAdminComponent } from "./post-classifieds-admin/post-cla
      {path:'myclassifieds/:username',component:MyclassifiedsComponent},
      {path:'add-citydetails/:adminid',component:AddCitydetailsComponent},
      {path:'post-classifieds/:username',component:PostClassifiedsComponent},
-     {path:'update-citydetails',component:UpdateCitydetailsComponent},
-     {path:'delete-classifieds',component:DeleteClassifiedsComponent}
+     {path:'update-citydetails/:adminid',component:UpdateCitydetailsComponent},
+     {path:'delete-classifieds/:adminid',component:DeleteClassifiedsComponent},
+     {path: 'update-classified/:username/:classified', component:UpdateClassifiedComponent},
+     {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent}
   
  ];
 
  @NgModule({
-     imports:[RouterModule.forRoot(routes)],
+     imports:[RouterModule.forRoot(routes, {onSameUrlNavigation: "reload"})],
      exports:[RouterModule]
  })
  export class AppRoutingModule{ }

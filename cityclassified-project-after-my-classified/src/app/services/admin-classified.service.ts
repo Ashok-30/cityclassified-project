@@ -14,4 +14,8 @@ export class AdminClassifiedService {
   postClassified(post: any){
     return this.http.post(this.apiUrl + '/adminclassifieds/adminclassified', post);
   }
+  deleteClassified(adminClassifiedId: number){
+    return this.http.delete(this.apiUrl + '/adminclassifieds/adminclassified/' + adminClassifiedId,  {responseType: 'text'});
+  }
+
 }

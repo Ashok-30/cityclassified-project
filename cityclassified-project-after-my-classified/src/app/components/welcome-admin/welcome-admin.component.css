@@ -62,3 +62,7 @@ td.column {
 ::placeholder {
     font-family: 'Josefin Sans', sans-serif;
 }
+
+body{
+    padding: 30px;
+}

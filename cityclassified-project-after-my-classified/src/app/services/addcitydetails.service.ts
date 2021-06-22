@@ -12,4 +12,7 @@ export class AddcitydetailsService {
   postCitydetails(post: any){
     return this.http.post(this.apiUrl + '/cityinfos/cityinfo', post);
   }
+  updateCityDetails(detail: any){
+    return this.http.put(this.apiUrl + '/cityinfos/cityinfo', detail);
+  }
 }
