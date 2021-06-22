@@ -15,6 +15,10 @@ export class ClassifiedsService {
     return this.http.get(this.apiUrl + '/classifieds/user/' + username);
   }
 
+  getAllClassifiedsForCity(cityId: number){
+    return this.http.get(this.apiUrl + '/classifieds/city/' + cityId);
+  }
+
   postClassified(post: any){
     return this.http.post(this.apiUrl + '/classifieds/classified', post);
   }

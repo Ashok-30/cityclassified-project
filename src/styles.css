@@ -10,5 +10,14 @@ body {
 @font-face {
     font-family: "Arcon";
     src: url("./assets/Arcon-Regular.otf");
-    
+}
+
+@font-face {
+    font-family: "Tommy";
+    src: url("./assets/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+
+@font-face {
+    font-family: "Apollo";
+    src: url("./assets/APOLLO.otf");
 }

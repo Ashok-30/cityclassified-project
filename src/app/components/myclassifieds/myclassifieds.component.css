@@ -38,7 +38,8 @@ table{
     padding-right: 0%;
     border-collapse: collapse;
     border: 2px solid black;
-    font-family: 'Arcon', Times, serif;
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
     letter-spacing: 1.1px;
     font-size: 1.1em;
     margin-bottom: 35px;

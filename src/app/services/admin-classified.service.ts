@@ -15,4 +15,8 @@ export class AdminClassifiedService {
     return this.http.post(this.apiUrl + '/adminclassifieds/adminclassified', post);
   }
 
+  getAllClassifiedsForCity(cityId: number){
+    return this.http.get(this.apiUrl + '/adminclassifieds/city/' + cityId);
+  }
+
 }

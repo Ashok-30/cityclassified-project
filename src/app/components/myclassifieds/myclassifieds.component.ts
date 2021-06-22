@@ -11,7 +11,7 @@ export class MyclassifiedsComponent implements OnInit {
 
   userClassifieds: any[] = [];
   currentUser: string = '';
-
+  
   constructor(private service: ClassifiedsService, private router: ActivatedRoute, private routeTo: Router) { }
 
   ngOnInit(): void {
