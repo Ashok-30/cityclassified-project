@@ -15,7 +15,7 @@
                         ngModel #classifiedid="ngModel"><button class="search" type="button" onclick=""
                         (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
                 <td>
-                    <label for="cities">Change City</label> &nbsp;
+                    <label class="change-city" for="cities">Change City</label> &nbsp;
                     <select name="cities" id="cities" class="custom-select" (change)="switch ? getCityInfos($event) : getOverallClassifiedsForCity($event)" #cities>
                         <option value=1 selected>Chennai</option>
                         <option value=2>Bangalore</option>
