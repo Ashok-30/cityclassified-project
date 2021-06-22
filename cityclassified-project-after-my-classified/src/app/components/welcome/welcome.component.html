@@ -1,0 +1,64 @@
+<body>
+  <header>
+    <div id="header-container">
+      <div class="col-2">
+        <h1 class="logo">Welcome to City Classifieds</h1>
+      </div>
+      <div class="menu-div">
+        <ul class="menu">
+
+          <li><a routerLink="/user-login" routerLinkActive="active">User Login</a></li>
+          <li><a routerLink="/admin-login" routerLinkActive="active">Admin Login</a></li>
+          <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <!--Header container ends here-->
+  </header>
+  
+  <div class="main-container">
+    <div id="top-section-main">
+      <div id="top-section-content">
+        <h1>The world within your hands.</h1>
+        <p>Everything you need to know about the city in one place. </p>
+      </div>
+      <div class="custom-select">
+        
+        <select name="cities" id="cities" class="custom-select element" >
+          <option value="none" selected disabled hidden   >
+            Choose City
+          </option>
+          <option value="Chennai">Chennai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Coimbatore">Coimbatore</option>
+          <option value="Mumbai">Mumbai</option>
+        </select>
+      
+      </div>
+    </div>
+    <div>
+      <form class="form-inline" action="/action_page.php" >
+
+        <table>
+          <tr>
+            <td><input type="search" id="detail" placeholder="Search by Detail Type" name="searchbyType"  >
+              <button class="button" routerLink="/view-classifieds" routerLinkActive="active" >Search</button>
+            </td>
+            <td> <input type="search" id="category" placeholder="Search by Category" name="searchbyCategory"  >
+              <button class="button" routerLink="/view-classifieds" routerLinkActive="active" >Search</button>
+            </td>
+            <td> <input type="search" id="classified" placeholder="Search by Classifieds" name="searchbyClassifiedId"  >
+              <button class="button" routerLink="/view-classifieds" routerLinkActive="active" >Search</button>
+            </td>
+          </tr>
+        </table>
+
+      </form>
+   
+    </div>
+    
+
+  </div>
+
+</body>

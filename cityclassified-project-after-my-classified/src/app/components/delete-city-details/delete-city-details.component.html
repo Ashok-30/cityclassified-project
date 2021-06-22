@@ -1,0 +1,22 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Delete City Details</legend>
+        <form #deleteForm="ngForm" (ngSubmit)="onDelete(deleteForm)" >
+            <table>
+
+                <tr>
+                    <td><label for="infoId">Enter Info Id</label> </td>
+                    <td><input ngModel class="element" type="text" name="infoId" placeholder="Enter Info Id"
+                            required >
+
+                </tr>
+               
+                <tr>
+                    <td></td>
+                    <td><input class="submit" type="submit" value="Delete" ></td>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+</body>

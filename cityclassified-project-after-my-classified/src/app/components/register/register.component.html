@@ -1,0 +1,87 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Register</legend>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <table>
+                <tr>
+                    <td><label for="userName">Enter UserName</label> </td>
+                    <td><input class="element" formControlName="userName" type="text" name="userName"
+                            placeholder="Spaces not allowed" required>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+                            User Name is already taken. <br>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="firstname">Enter FirstName</label> </td>
+                    <td><input class="element" formControlName="firstname" type="text" name="firstName"
+                            placeholder="Enter First Name" required>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched">
+                            First Name cannot be blank.<br>
+                            First Name cannot contain space.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="lastname">Enter LastName</label></td>
+                    <td><input class="element" formControlName="lastname" type="text" name="lastName"
+                            placeholder="Enter Last Name" required>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched">
+                            Last Name cannot be blank.<br>
+                            Last Name cannot contain space.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="password">Enter Password</label> </td>
+                    <td><input class="element" formControlName="password" type="password" id="password" name="password"
+                            placeholder="Enter Password" required>
+                        &nbsp; <i class="fa fa-eye" id="eye" (click)="toggle()"></i>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                            Password cannot be blank.<br>
+                            Password cannot contain space.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="dateOfBirth">Enter Date Of Birth</label> </td>
+                    <td> <input class="element" formControlName="dateOfBirth" type="date" name="dateOfBirth"
+                            placeholder="Enter Date Of Birth" required>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('dateOfBirth')?.invalid && registerForm.get('dateOfBirth')?.touched">
+                            Choose a date.
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="phoneNumber">Enter PhoneNumber</label> </td>
+                    <td> <input class="element" formControlName="phoneNumber" type="text" name="phoneNumber"
+                            pattern="[6-9]{1}[0-9]{9}" placeholder="Enter Phone Number" required>
+                        <div class="error-msg"
+                            *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched">
+                            Phone number must be valid and have 10 digits
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cities">Choose City</label></td>
+                    <td><select name="cities" formControlName="city" id="cities" class="custom-select element">
+                            <option [ngValue]={id:1}>Chennai</option>
+                            <option [ngValue]={id:2}>Bangalore</option>
+                            <option [ngValue]={id:3}>Coimbatore</option>
+                            <option [ngValue]={id:4}>Mumbai</option>
+                        </select> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="submit" type="submit" value="Submit" [disabled]="!registerForm.valid"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>

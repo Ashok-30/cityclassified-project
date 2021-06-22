@@ -1,0 +1,47 @@
+<body>
+    <fieldset class="userinput">
+        <legend>User Login</legend>
+        <form #userForm="ngForm">
+            <table>
+                <tr>
+
+                    <td><label for="username">Enter Username</label> </td>
+                    <td><input class="element" type="text" name="username" ngModel #username="ngModel"
+                            placeholder="Enter Username" required>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username is
+                            mandatory</mat-error>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Enter Password</label> </td>
+                    <td><input class="element" type="password" id="password" name="password" ngModel #password="ngModel"
+                            placeholder="Enter Password" required>
+                        &nbsp; <i class="fa fa-eye" id="eye" (click)="toggle()"></i> </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password is
+                            mandatory</mat-error>
+                            <div id="incorrect-password" *ngIf="incorrectPassword">Incorrect Password</div>
+                            <div class="loader" *ngIf="loading">Loading...</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <a routerLink="/forgot-password" routerLinkActive="active">Forgot Password?</a></td>
+                    <td><input class="submit" type="submit" value="Submit" (click)="onSubmit(userForm)"></td>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+</body>
