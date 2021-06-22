@@ -24,6 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { PostClassifiedsAdminComponent } from './components/post-classifieds-admin/post-classifieds-admin.component';
 import { UpdateClassifiedComponent } from './components/update-classified/update-classified.component';
 import { DeleteAdminClassifiedComponent } from './components/delete-admin-classified/delete-admin-classified.component';
+import { DeleteCityDetailsComponent } from './components/delete-city-details/delete-city-details.component';
+import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 @NgModule({
   imports: [BrowserModule,
     AppRoutingModule,
@@ -49,7 +51,9 @@ import { DeleteAdminClassifiedComponent } from './components/delete-admin-classi
     DeleteClassifiedsComponent,
     PostClassifiedsAdminComponent,
     UpdateClassifiedComponent,
-    DeleteAdminClassifiedComponent
+    DeleteAdminClassifiedComponent,
+    DeleteCityDetailsComponent,
+    DeleteUserComponent
 
 
   ],

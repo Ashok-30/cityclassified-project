@@ -16,6 +16,8 @@ import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { PostClassifiedsAdminComponent } from "./components/post-classifieds-admin/post-classifieds-admin.component";
 import { UpdateClassifiedComponent } from "./components/update-classified/update-classified.component";
 import { DeleteAdminClassifiedComponent } from "./components/delete-admin-classified/delete-admin-classified.component";
+import { DeleteCityDetailsComponent } from "./components/delete-city-details/delete-city-details.component";
+import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
@@ -33,7 +35,9 @@ import { DeleteAdminClassifiedComponent } from "./components/delete-admin-classi
      {path:'update-citydetails/:adminid',component:UpdateCitydetailsComponent},
      {path:'delete-classifieds/:adminid',component:DeleteClassifiedsComponent},
      {path: 'update-classified/:username/:classified', component:UpdateClassifiedComponent},
-     {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent}
+     {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent},
+     {path:'delete-city-details/:adminid',component:DeleteCityDetailsComponent},
+     {path:'delete-user/:adminid',component:DeleteUserComponent}
   
  ];
 

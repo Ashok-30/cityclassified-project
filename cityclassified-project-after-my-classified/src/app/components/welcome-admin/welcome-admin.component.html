@@ -37,13 +37,19 @@
             <button class="btn" routerLink="/post-classifieds-admin/{{ currentAdminId }}" routerLinkActive="active" type="button" onclick="">Post Admin
                 Classified</button>
         </td>
-    </tr>
+   
 
 
-    <tr>
+   
         <td class="column">
             <button class="btn" routerLink="/update-citydetails/{{currentAdminId}}"routerLinkActive="active" type="button"
                 onclick="">Update Details</button>
+        </td>
+    </tr>
+    <tr>
+        <td class="column">
+            <button class="btn" routerLink="/delete-city-details/{{currentAdminId}}" routerLinkActive="active" type="button"
+                onclick="">Delete City Details</button>
         </td>
         <td class="column">
             <button class="btn" routerLink="/delete-classifieds/{{currentAdminId}}" routerLinkActive="active" type="button"
@@ -53,6 +59,13 @@
             <button class="btn" routerLink="/delete-admin-classified/{{currentAdminId}}" routerLinkActive="active" type="button"
                 onclick="">Delete Admin Classified</button>
         </td>
+
+        <td class="column">
+            <button class="btn" routerLink="/delete-user/{{currentAdminId}}" routerLinkActive="active" type="button"
+                onclick="">Delete User 
+            </button>
+        </td>
+        
     </tr>
 </table>
 </body>

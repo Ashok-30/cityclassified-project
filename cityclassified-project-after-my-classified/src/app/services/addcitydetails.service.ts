@@ -15,4 +15,8 @@ export class AddcitydetailsService {
   updateCityDetails(detail: any){
     return this.http.put(this.apiUrl + '/cityinfos/cityinfo', detail);
   }
+  deleteCityDetails(infoId: number){
+    return this.http.delete(this.apiUrl + '/cityinfos/' + infoId,  {responseType: 'text'});
+  }
+ 
 }

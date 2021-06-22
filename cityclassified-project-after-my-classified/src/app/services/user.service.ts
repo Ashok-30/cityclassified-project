@@ -14,5 +14,8 @@ export class UserService {
   getPassword(username: string){
     return this.http.get(this.apiUrl + '/users/password/' + username);
   }
+  deleteUser(userName: string){
+    return this.http.delete(this.apiUrl + '/users/' + userName,  {responseType: 'text'});
+  }
 
 }
