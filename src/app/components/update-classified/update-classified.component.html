@@ -1,0 +1,44 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Update Classified</legend>
+        <form #updateClassified="ngForm" (ngSubmit)="onUpdate()">
+            <table>
+                <tr>
+                    <td><label for="classifiedId">Enter Classified Id</label> </td>
+                    <td><input [(ngModel)]="classified.id" class="element" type="text" name="id" placeholder="Enter Classified Id" readonly required> </td>
+                </tr>
+                <tr>
+                    <td><label for="category">Enter Category</label> </td>
+                    <td><input [(ngModel)]="classified.category" class="element" type="text" name="category" placeholder="Enter Category" required> </td>
+                </tr>
+                <tr>
+                    <td><label for="heading">Enter Heading</label> </td>
+                    <td><input [(ngModel)]="classified.heading" class="element" type="text" name="heading" placeholder="Enter Heading" required> </td>
+                </tr>
+                <tr>
+                    <td><label for="description">Enter Description</label></td>
+                    <td><textarea [(ngModel)]="classified.description" class="element" type="textarea" name="description" rows="6" cols="50"
+                            placeholder="Enter Description" required></textarea> </td>
+                </tr>
+                <tr>
+                    <td><label for="price">Enter Price</label> </td>
+                    <td><input [(ngModel)]="classified.price" class="element" type="number" step="0.01" name="price" placeholder="Enter Price"
+                            required> </td>
+                </tr>
+                <tr>
+                    <td><label for="phoneNumber">Enter PhoneNumber</label> </td>
+                    <td> <input [(ngModel)]="classified.contactNumber" class="element" type="text" name="contactNumber" pattern="[6-9]{1}[0-9]{9}"
+                            placeholder="Enter PhoneNumber" required></td>
+                </tr>
+                <tr>
+                    <td> <label for="email">Enter Email Id</label> </td>
+                    <td> <input [(ngModel)]="classified.contactMail" class="element" type="email" name="contactMail" placeholder="Enter Email Id" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input class="submit" type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>

@@ -1,0 +1,240 @@
+<body>
+    <form #contentpage="ngForm">
+        <table class="nav-bar">
+            <tr>
+                <td>
+                    <span class="title-name">City Classifieds</span>
+                </td>
+                <td> <input type="text" class="search" name="searchByCategory" placeholder="Search By Category" ngModel
+                        #category="ngModel"><button class="search" type="button" onclick=""
+                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
+                <td> <input type="text" class="search" name="searchByType" placeholder="Search By Type" ngModel
+                        #type="ngModel"><button class="search" type="button" onclick=""
+                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
+                <td> <input type="text" class="search" name="searchByClassifiedId" placeholder="Search By ClassifiedId"
+                        ngModel #classifiedid="ngModel"><button class="search" type="button" onclick=""
+                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
+                <td>
+                    <label for="cities">Change City</label> &nbsp;
+                    <select name="cities" id="cities" class="custom-select" (change)="switch ? getCityInfos($event) : getOverallClassifiedsForCity($event)" #cities>
+                        <option value=1 selected>Chennai</option>
+                        <option value=2>Bangalore</option>
+                        <option value=3>Coimbatore</option>
+                        <option value=4>Mumbai</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="dummy"></div>
+        <table class="my-post-btn">
+            <tr class="my-btn">
+                <td>
+                    <button class="btn" routerLink="/myclassifieds/{{currentUser}}" routerLinkActive=active
+                        (click)="content(contentpage)">MY CLASSIFIEDS</button>
+
+                </td>
+                <td>
+                    <button class="btn" routerLink="/post-classifieds/{{currentUser}}" routerLinkActive=active
+                        (click)="content(contentpage)">POST CLASSIFIED</button>
+                </td>
+                <td>
+                    <button type="button" class="btn" (click)="switchComponent()">
+                        <div *ngIf="switch">SWITCH TO CLASSIFIEDS</div>
+                        <div *ngIf="!switch">SWITCH TO CITY-INFO</div>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn" routerLink="">BACK TO HOME</button>
+                </td>
+            </tr>
+        </table>
+        <div *ngIf="switch">
+            <table class="type-options">
+                <tr>
+                    <td>
+                        <input name="choose-type" type="radio" value="" (change)="getAllCityInfos(cities.options[cities.selectedIndex].value)">
+                        <label>All</label>
+                    </td>
+                    <td>
+                        <input name="choose-type" type="radio" value=1 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <label>Hospital</label>
+                    </td>
+                    <td>
+                        <input name="choose-type" type="radio" value=2 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <label>Theatre</label>
+                    </td>
+                    <td>
+                        <input name="choose-type" type="radio" value=3 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <label>Mall</label>
+                    </td>
+                </tr>
+            </table>
+            <div *ngIf=" cityInfoError" class="error-msg">Some error occured in retrieving city infos...</div>
+                        <table class="city-info" *ngFor="let cityInfo of cityInfos">
+                            <tr>
+                                <td>Info Id</td>
+                                <td>{{ cityInfo.infoId }}</td>
+                            </tr>
+                            <tr>
+                                <td>Heading</td>
+                                <td>{{ cityInfo.heading }}</td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>{{ cityInfo.description }}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>{{ cityInfo.address }}</td>
+                            </tr>
+                            <tr>
+                                <td>Rating</td>
+                                <td>{{ cityInfo.rating }}</td>
+                            </tr>
+                            <tr>
+                                <td>Type</td>
+                                <td>{{ cityInfo.infoType.infoType }}</td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td>{{ cityInfo.city.cityName }}</td>
+                            </tr>
+                        </table>
+        </div>
+        <div *ngIf="!switch">
+            <div *ngIf="cityClassifiedError" class="error-msg">Error in getting classifieds from server...</div>
+            <table class="admin-classifieds" *ngFor="let classified of cityAdminClassifieds">
+                <tr>
+                    <td>
+                        Classified Id
+                    </td>
+                    <td>
+                        {{ classified?.id }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Heading
+                    </td>
+                    <td>
+                        {{ classified?.heading }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        {{ classified?.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Category
+                    </td>
+                    <td>
+                        {{ classified?.category }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Price
+                    </td>
+                    <td>
+                        Rs. {{classified?.price }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contact Mail
+                    </td>
+                    <td>
+                        {{ classified?.contactMail }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contact Number
+                    </td>
+                    <td>
+                        {{ classified?.contactNumber }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Posted Date
+                    </td>
+                    <td>
+                        {{ classified?.postedDate | date : 'medium' }}
+                    </td>
+                </tr>
+            </table>
+            <table class="city-classifieds" *ngFor="let classified of cityClassifieds">
+                <tr>
+                    <td>
+                        Classified Id
+                    </td>
+                    <td>
+                        {{ classified?.id }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Heading
+                    </td>
+                    <td>
+                        {{ classified?.heading }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        {{ classified?.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Category
+                    </td>
+                    <td>
+                        {{ classified?.category }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Price
+                    </td>
+                    <td>
+                        Rs. {{classified?.price }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contact Mail
+                    </td>
+                    <td>
+                        {{ classified?.contactMail }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Contact Number
+                    </td>
+                    <td>
+                        {{ classified?.contactNumber }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Posted Date
+                    </td>
+                    <td>
+                        {{ classified?.postedDate | date : 'medium' }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>

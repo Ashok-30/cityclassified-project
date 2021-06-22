@@ -1,0 +1,157 @@
+::placeholder {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    padding: 10px;
+}
+
+.search {
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+    border: 2px solid #368BC1;
+}
+
+input.search:focus {
+    outline: none;
+    border-color: teal;
+}
+
+label {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+i.custom-search {
+    color: white;
+}
+
+button.search {
+    background-color: #368BC1;
+    border: 2px solid teal;
+    padding: 5px 12px 5px 12px;
+}
+
+button.search:hover {
+    cursor: pointer;
+}
+
+button.btn {
+    padding: 10px 20px 10px 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Tommy', sans-serif;
+    border: 3px solid #368BC1;
+    border-radius: 25px;
+    background-color: white;
+    color: #368BC1;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.nav-bar {
+    padding: 20px;
+    background-color: white;
+}
+
+.title-name {
+    letter-spacing: 1.2px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2em;
+    color: #368BC1;
+    border-bottom: solid #368BC1;
+    margin-right: 30px;
+}
+
+.custom-select {
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 5px;
+}
+
+table.nav-bar {
+    margin: auto;
+    position: fixed;
+}
+
+.dummy {
+    height: 140px;
+}
+
+.my-post-btn {
+    padding-left: 30px;
+    margin: auto;
+}
+
+table.city-info {
+    margin: auto;
+    width: 35%;
+    padding-right: 0%;
+    border-collapse: collapse;
+    border: 3px solid #00ffff;
+    font-family: 'Apollo', Times, serif;
+    letter-spacing: 1.1px;
+    font-size: 1.2em;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    letter-spacing: 1.2px;
+    background-color: black;
+    color: white;
+}
+
+table.city-info>tr>td {
+    padding: 12px;
+    padding-right: 10px;
+    padding-left: 30px;
+    border: 1.5px solid white;
+    
+}
+
+table.type-options {
+    padding: 20px;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+table.type-options>tr>td {
+    padding: 20px;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+    width: 20px;
+}
+
+label{
+    font-family: 'Tommy', sans-serif;
+    letter-spacing: 1.2px;
+}
+
+
+table.admin-classified, table.city-classified{
+    margin: auto;
+    width: 50%;
+    padding-right: 0%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    font-size: 1.1em;
+    margin-bottom: 35px;
+    margin-top: 35px;
+}
+
+table.admin-classified>tr>td, table.city-classified>tr>td{
+    padding: 12px;
+    padding-right: 30px;
+    padding-left: 30px;
+    
+}
+
+table.admin-classified>tr:nth-child(even) {background-color: #f2f2f2;}
+table.city-classified>tr:nth-child(even) {background-color: #f2f2f2;}
