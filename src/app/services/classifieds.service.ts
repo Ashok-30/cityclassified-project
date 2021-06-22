@@ -11,12 +11,20 @@ export class ClassifiedsService {
 
   constructor(private http: HttpClient) { }
 
+  getClassifiedById(classifiedId: string){
+    return this.http.get(this.apiUrl + '/classifieds/' + classifiedId);
+  }
+
   getAllClassifiedsOfAUser(username: string){
     return this.http.get(this.apiUrl + '/classifieds/user/' + username);
   }
 
   getAllClassifiedsForCity(cityId: number){
     return this.http.get(this.apiUrl + '/classifieds/city/' + cityId);
+  }
+
+  getAllClassifiedsByCategory(category: string){
+    return this.http.get(this.apiUrl + '/classifieds/category/' + category);
   }
 
   postClassified(post: any){

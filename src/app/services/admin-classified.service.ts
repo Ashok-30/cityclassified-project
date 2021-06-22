@@ -19,4 +19,12 @@ export class AdminClassifiedService {
     return this.http.get(this.apiUrl + '/adminclassifieds/city/' + cityId);
   }
 
+  getAllClassifiedsByCategory(category: string){
+    return this.http.get(this.apiUrl + '/adminclassifieds/category/' + category);
+  }
+
+  getClassifiedById(adminClassifiedId: string){
+    return this.http.get(this.apiUrl + '/adminclassifieds/' + adminClassifiedId);
+  }
+
 }

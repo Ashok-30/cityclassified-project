@@ -1,6 +1,6 @@
 <a routerLink="/content-page/{{currentUser}}">Back to Content Page</a>
 <p>My Classifieds</p> 
-<div class="empty-msg" *ngIf="userClassifieds.length == 0">Wow .. Such empty :(</div>
+<div class="empty-msg" *ngIf="userClassifieds.length == 0"><i class="far fa-grin-beam-sweat"></i> Wow .. Such empty :(</div>
 <table *ngFor="let classified of userClassifieds">
     <tr>
         <td>

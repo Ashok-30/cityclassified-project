@@ -6,17 +6,22 @@
                     <span class="title-name">City Classifieds</span>
                 </td>
                 <td> <input type="text" class="search" name="searchByCategory" placeholder="Search By Category" ngModel
-                        #category="ngModel"><button class="search" type="button" onclick=""
-                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
-                <td> <input type="text" class="search" name="searchByType" placeholder="Search By Type" ngModel
-                        #type="ngModel"><button class="search" type="button" onclick=""
-                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
+                        #category="ngModel" required><button class="search" type="button"
+                        (click)="onSearchByCategory(category)" [disabled]="switch || category.invalid"><i
+                            class="fa fa-search custom-search"></i></button> </td>
+                <td> <input type="text" class="search" name="searchByAdminClassifiedId"
+                        placeholder="Search By AdminClassifiedId" ngModel #adminclassifiedid="ngModel" required><button
+                        class="search" type="button" (click)="onSearchByAdminClassifiedId(adminclassifiedid)"
+                        [disabled]="switch || adminclassifiedid.invalid"><i
+                            class="fa fa-search custom-search"></i></button> </td>
                 <td> <input type="text" class="search" name="searchByClassifiedId" placeholder="Search By ClassifiedId"
-                        ngModel #classifiedid="ngModel"><button class="search" type="button" onclick=""
-                        (click)="content(contentpage)"><i class="fa fa-search custom-search"></i></button> </td>
+                        ngModel #classifiedid="ngModel" required><button class="search" type="button" onclick=""
+                        (click)="onSearchByClassifiedId(classifiedid)" [disabled]="switch || classifiedid.invalid"><i
+                            class="fa fa-search custom-search"></i></button> </td>
                 <td>
                     <label class="change-city" for="cities">Change City</label> &nbsp;
-                    <select name="cities" id="cities" class="custom-select" (change)="switch ? getCityInfos($event) : getOverallClassifiedsForCity($event)" #cities>
+                    <select name="cities" id="cities" class="custom-select"
+                        (click)="switch ? getCityInfos($event) : getOverallClassifiedsForCity($event)" #cities>
                         <option value=1 selected>Chennai</option>
                         <option value=2>Bangalore</option>
                         <option value=3>Coimbatore</option>
@@ -52,57 +57,62 @@
             <table class="type-options">
                 <tr>
                     <td>
-                        <input name="choose-type" type="radio" value="" (change)="getAllCityInfos(cities.options[cities.selectedIndex].value)">
+                        <input name="choose-type" type="radio" value=""
+                            (change)="getAllCityInfos(cities.options[cities.selectedIndex].value)">
                         <label>All</label>
                     </td>
                     <td>
-                        <input name="choose-type" type="radio" value=1 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <input name="choose-type" type="radio" value=1
+                            (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
                         <label>Hospital</label>
                     </td>
                     <td>
-                        <input name="choose-type" type="radio" value=2 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <input name="choose-type" type="radio" value=2
+                            (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
                         <label>Theatre</label>
                     </td>
                     <td>
-                        <input name="choose-type" type="radio" value=3 (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
+                        <input name="choose-type" type="radio" value=3
+                            (change)="getAllCityInfosForType($event, cities.options[cities.selectedIndex].value)">
                         <label>Mall</label>
                     </td>
                 </tr>
             </table>
-            <div *ngIf=" cityInfoError" class="error-msg">Some error occured in retrieving city infos...</div>
-                        <table class="city-info" *ngFor="let cityInfo of cityInfos">
-                            <tr>
-                                <td>Info Id</td>
-                                <td>{{ cityInfo.infoId }}</td>
-                            </tr>
-                            <tr>
-                                <td>Heading</td>
-                                <td>{{ cityInfo.heading }}</td>
-                            </tr>
-                            <tr>
-                                <td>Description</td>
-                                <td>{{ cityInfo.description }}</td>
-                            </tr>
-                            <tr>
-                                <td>Address</td>
-                                <td>{{ cityInfo.address }}</td>
-                            </tr>
-                            <tr>
-                                <td>Rating</td>
-                                <td>{{ cityInfo.rating }}</td>
-                            </tr>
-                            <tr>
-                                <td>Type</td>
-                                <td>{{ cityInfo.infoType.infoType }}</td>
-                            </tr>
-                            <tr>
-                                <td>City</td>
-                                <td>{{ cityInfo.city.cityName }}</td>
-                            </tr>
-                        </table>
+            <div *ngIf=" cityInfoError" class="error-msg"><i class="fas fa-heart-broken"></i> Some error occured in retrieving city infos...</div>
+            <table class="city-info" *ngFor="let cityInfo of cityInfos">
+                <tr>
+                    <td>Info Id</td>
+                    <td>{{ cityInfo.infoId }}</td>
+                </tr>
+                <tr>
+                    <td>Heading</td>
+                    <td>{{ cityInfo.heading }}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ cityInfo.description }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ cityInfo.address }}</td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td>{{ cityInfo.rating }}</td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>{{ cityInfo.infoType.infoType }}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>{{ cityInfo.city.cityName }}</td>
+                </tr>
+            </table>
         </div>
         <div *ngIf="!switch">
             <div *ngIf="cityClassifiedError" class="error-msg">Error in getting classifieds from server...</div>
+            <div *ngIf="noResults" class="not-found-msg"><i class="fa fa-frown-o" aria-hidden="true"></i> No results found ... </div>
             <table class="admin-classifieds" *ngFor="let classified of cityAdminClassifieds">
                 <tr>
                     <td>
@@ -166,6 +176,14 @@
                     </td>
                     <td>
                         {{ classified?.postedDate | date : 'medium' }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        City
+                    </td>
+                    <td>
+                        {{ classified?.city?.cityName }}
                     </td>
                 </tr>
             </table>
@@ -232,6 +250,14 @@
                     </td>
                     <td>
                         {{ classified?.postedDate | date : 'medium' }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        City
+                    </td>
+                    <td>
+                        {{ classified?.city?.cityName }}
                     </td>
                 </tr>
             </table>

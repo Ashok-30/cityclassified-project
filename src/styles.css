@@ -18,6 +18,11 @@ body {
 }
 
 @font-face {
+    font-family: "Tommy Light";
+    src: url("./assets/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
     font-family: "Apollo";
     src: url("./assets/APOLLO.otf");
 }

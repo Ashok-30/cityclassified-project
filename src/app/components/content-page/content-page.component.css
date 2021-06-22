@@ -35,6 +35,10 @@ button.search:hover {
     cursor: pointer;
 }
 
+button.search:disabled{
+    background-color: grey;
+}
+
 button.btn {
     padding: 10px 20px 10px 20px;
     margin-left: 10px;
@@ -131,7 +135,8 @@ input[type="radio"] {
 }
 
 label{
-    font-family: 'Tommy', sans-serif;
+    font-family: 'Tommy Light', sans-serif;
+    font-weight: bold;
     letter-spacing: 1.2px;
 }
 
@@ -178,3 +183,27 @@ table.admin-classifieds>tr>td, table.city-classifieds>tr>td{
 
 table.admin-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
 table.city-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
+
+.error-msg{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 30px;
+    padding-top: 70px;
+}
+
+.not-found-msg{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+    font-weight: bold;
+    font-size: 3em;
+    padding: 30px;
+    padding-top: 70px;
+}

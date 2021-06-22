@@ -19,6 +19,7 @@ export class ContentPageComponent implements OnInit {
   cityInfoError: boolean = false;
   cityAdminClassifieds: any[] = [];
   cityClassifiedError: boolean = false;
+  noResults: boolean = false;
 
   constructor(private service: ClassifiedsService, private router: ActivatedRoute, private routeTo: Router, private cityInfoService: AddcitydetailsService, private adminClassifiedService: AdminClassifiedService) { }
 
@@ -49,6 +50,9 @@ export class ContentPageComponent implements OnInit {
 
   switchComponent() {
     this.switch = !this.switch
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
   }
 
   content(contentpage: NgForm) {
@@ -56,6 +60,10 @@ export class ContentPageComponent implements OnInit {
   }
 
   getCityInfos(event: any) {
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
+
     var defaultCheck = document?.getElementsByName("choose-type");
     defaultCheck?.forEach(element => {
       (element as HTMLInputElement).checked = false;
@@ -64,32 +72,44 @@ export class ContentPageComponent implements OnInit {
       .subscribe(response => {
         this.cityInfos = (response as string[])
       }, error => {
-        this.cityInfoError = true;
+        this.cityInfoError = true
+        this.cityInfos = []
         console.log(error)
       })
   }
 
   getAllCityInfos(cityId: any) {
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
     this.cityInfoService.getCityInfos(parseInt(cityId))
       .subscribe(response => {
         this.cityInfos = (response as string[])
       }, error => {
         this.cityInfoError = true;
+        this.cityInfos = []
         console.log(error)
       })
   }
 
   getAllCityInfosForType(event: any, cityId: any) {
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
     this.cityInfoService.getCityInfosForType(parseInt(cityId), event.target.value)
       .subscribe(response => {
         this.cityInfos = (response as string[])
       }, error => {
         this.cityInfoError = true;
+        this.cityInfos = []
         console.log(error)
       })
   }
 
   getOverallClassifiedsForCity(event: any) {
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
     this.adminClassifiedService.getAllClassifiedsForCity(event.target.value)
       .subscribe(response => {
         this.cityAdminClassifieds = (response as string[])
@@ -102,6 +122,84 @@ export class ContentPageComponent implements OnInit {
         this.cityClassifieds = (response as string[])
       }, error => {
         this.cityClassifiedError = true;
+        console.log(error)
+      })
+  }
+
+  onSearchByCategory(category: any){
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
+    this.adminClassifiedService.getAllClassifiedsByCategory(category.value)
+      .subscribe(response => {
+        if ((response as string[]).length > 0){
+          this.noResults = false
+          this.cityAdminClassifieds = response as string[]
+        }
+        else{
+          this.noResults = true
+          this.cityAdminClassifieds = []
+        }
+      }, error => {
+        this.cityClassifiedError = true
+        console.log(error)
+      })
+
+      this.service.getAllClassifiedsByCategory(category.value)
+      .subscribe(response => {
+        if ((response as string[]).length > 0){
+          this.noResults = false
+          this.cityClassifieds = response as string[]
+        }
+        else{
+          this.noResults = true
+          this.cityClassifieds = []
+        }
+      }, error => {
+        this.cityClassifiedError = true
+        console.log(error)
+      })
+  }
+
+  onSearchByAdminClassifiedId(adminclassifiedid: any){
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
+    this.adminClassifiedService.getClassifiedById(adminclassifiedid.value)
+      .subscribe(response => {
+        if(response != null){
+          this.cityAdminClassifieds = []
+          this.cityAdminClassifieds.push(response)
+          this.cityClassifieds = []
+        }
+        else {
+          this.noResults = true
+          this.cityAdminClassifieds = []
+          this.cityClassifieds = []
+        }
+      }, error => {
+        this.cityClassifiedError = true
+        console.log(error)
+      })
+  }
+
+  onSearchByClassifiedId(classifiedid: any){
+    this.cityClassifiedError = false;
+    this.noResults = false;
+    this.cityInfoError = false;
+    this.service.getClassifiedById(classifiedid.value)
+      .subscribe(response => {
+        if (response != null){
+          this.cityClassifieds = []
+          this.cityAdminClassifieds = []
+          this.cityClassifieds.push(response)
+        } else {
+          this.noResults = true
+          this.cityClassifieds = []
+          this.cityAdminClassifieds = []
+        }
+      }, error => {
+        this.cityClassifiedError = true
         console.log(error)
       })
   }
