@@ -31,17 +31,31 @@ export class ContentPageComponent implements OnInit {
         this.cityInfoError = true;
         console.log(error)
       })
+    this.adminClassifiedService.getAllClassifiedsForCity(1)
+      .subscribe(response => {
+        this.cityAdminClassifieds = (response as string[])
+      }, error => {
+        this.cityClassifiedError = true;
+        console.log(error)
+      });
+    this.service.getAllClassifiedsForCity(1)
+      .subscribe(response => {
+        this.cityClassifieds = (response as string[])
+      }, error => {
+        this.cityClassifiedError = true;
+        console.log(error)
+      })
   }
 
-  switchComponent(){
+  switchComponent() {
     this.switch = !this.switch
   }
 
-  content(contentpage:NgForm){
-    console.log(contentpage.value,contentpage.valid)
+  content(contentpage: NgForm) {
+    console.log(contentpage.value, contentpage.valid)
   }
 
-  getCityInfos(event: any){
+  getCityInfos(event: any) {
     var defaultCheck = document?.getElementsByName("choose-type");
     defaultCheck?.forEach(element => {
       (element as HTMLInputElement).checked = false;
@@ -55,7 +69,7 @@ export class ContentPageComponent implements OnInit {
       })
   }
 
-  getAllCityInfos(cityId: any){
+  getAllCityInfos(cityId: any) {
     this.cityInfoService.getCityInfos(parseInt(cityId))
       .subscribe(response => {
         this.cityInfos = (response as string[])
@@ -65,7 +79,7 @@ export class ContentPageComponent implements OnInit {
       })
   }
 
-  getAllCityInfosForType(event: any, cityId:any){
+  getAllCityInfosForType(event: any, cityId: any) {
     this.cityInfoService.getCityInfosForType(parseInt(cityId), event.target.value)
       .subscribe(response => {
         this.cityInfos = (response as string[])
@@ -75,7 +89,7 @@ export class ContentPageComponent implements OnInit {
       })
   }
 
-  getOverallClassifiedsForCity(event: any){
+  getOverallClassifiedsForCity(event: any) {
     this.adminClassifiedService.getAllClassifiedsForCity(event.target.value)
       .subscribe(response => {
         this.cityAdminClassifieds = (response as string[])
