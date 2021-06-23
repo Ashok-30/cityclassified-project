@@ -78,7 +78,8 @@
     i:hover {
         cursor: pointer;
     }
-    mat-error{
+
+    mat-error, #incorrect-password {
         color: red;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         width: fit-content;
@@ -87,4 +88,3 @@
         margin-top: 5px;
         font-weight: 500;
     }
-    

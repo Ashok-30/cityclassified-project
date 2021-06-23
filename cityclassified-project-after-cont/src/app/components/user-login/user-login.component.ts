@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,27 +14,22 @@ export class UserLoginComponent implements OnInit {
   incorrectPassword: boolean = false;
   loading: boolean = false;
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private service: UserService, private router: Router, private authService: AuthenticationService) { }
  
   ngOnInit(): void {
   }
 
   onSubmit(userForm:NgForm){
     this.loading = true;
-    this.service.getPassword(userForm.value.username)
-      .subscribe(response => {
-        if (userForm.value.password === (response as string[])[0]){
-          console.log("Login Success")
-          this.router.navigateByUrl('/content-page/'+ (userForm.value.username as string));
-        }
-        else {
-          this.incorrectPassword = true;
-          this.loading = false;
-        }
-      }, error => {
-        console.log(error)
-      })
-
+    this.authService.authenticate(userForm.value.username, userForm.value.password)
+    if (this.authService.isUserLoggedIn()){
+      this.loading = false
+      this.router.navigateByUrl('/content-page/' + userForm.value.username)
+    }
+    else{
+      this.incorrectPassword = true
+      this.loading = false
+    }
   }
 
   toggle() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ClassifiedsService } from 'src/app/services/classifieds.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class WelcomeAdminComponent implements OnInit {
   noResults: boolean = false;
   errorMsg: boolean = false;
 
-  constructor(private router: ActivatedRoute, private service: ClassifiedsService) { }
+  constructor(private router: ActivatedRoute, private service: ClassifiedsService, private authService: AuthenticationService, private routeTo: Router) { }
 
   ngOnInit(): void {
     this.currentAdminId = this.router.snapshot.params.adminid;
@@ -67,6 +68,11 @@ export class WelcomeAdminComponent implements OnInit {
         this.classifieds = []
         console.log(error)
       })
+  }
+
+  onLogout(){
+    this.authService.logOutAdmin();
+    this.routeTo.navigateByUrl('');
   }
   
 }

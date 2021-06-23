@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Admin } from '../model/admin';
 
 @Component({
@@ -15,33 +16,26 @@ export class AdminLoginComponent implements OnInit {
   loading: boolean = false;
   adminid: number = 0;
 
-  constructor(private service: AdminService, private router: Router) { }
+  constructor(private service: AdminService, private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
- 
-  onSubmit(adminForm:NgForm){
-    this.loading = true;
-    this.service.getAdminPassword(adminForm.value.adminname)
-      .subscribe(response => {
-        if (adminForm.value.password === (response as string[])[0]){
-          console.log("Login Success")
-          this.service.getAdminByAdminName(adminForm.value.adminname)
-            .subscribe(response => {
-              console.log(response)
-              this.adminid = (response as Admin).id
-              this.router.navigateByUrl('/welcome-admin/'+ this.adminid);
-            })
-        }
-        else {
-          this.incorrectPassword = true;
-          this.loading = false;
-        }
-      }, error => {
-        alert("An error occured")
-        console.log(error)
-      })
 
+  onSubmit(adminForm: NgForm) {
+    this.loading = true;
+    this.authService.authenticateAdmin(adminForm.value.adminname, adminForm.value.password)
+
+    if (this.authService.isAdminLoggedIn()) {
+      this.service.getAdminByAdminName(adminForm.value.adminname)
+        .subscribe(response => {
+          this.adminid = (response as Admin).id
+          this.router.navigateByUrl('/welcome-admin/' + this.adminid);
+        })
+    }
+    else {
+      this.incorrectPassword = true;
+      this.loading = false;
+    }
   }
 
   toggle() {

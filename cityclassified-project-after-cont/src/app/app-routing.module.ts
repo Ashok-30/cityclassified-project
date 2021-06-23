@@ -18,6 +18,8 @@ import { UpdateClassifiedComponent } from "./components/update-classified/update
 import { DeleteAdminClassifiedComponent } from "./components/delete-admin-classified/delete-admin-classified.component";
 import { DeleteCityDetailsComponent } from "./components/delete-city-details/delete-city-details.component";
 import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
+import { AuthGuardService } from "./services/auth-guard.service";
+import { AuthGuardAdminService } from "./services/auth-guard-admin.service";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
@@ -26,19 +28,19 @@ import { DeleteUserComponent } from "./components/delete-user/delete-user.compon
      {path:'register',component:RegisterComponent},
      {path:'forgot-password',component:ForgotPasswordComponent},
      {path:'view-classifieds',component:ViewClassifiedsComponent},
-     {path:'content-page/:username',component:ContentPageComponent},
-     {path:'welcome-admin/:adminid',component:WelcomeAdminComponent},
-     {path: 'post-classifieds-admin/:adminid', component:PostClassifiedsAdminComponent},
-     {path:'myclassifieds/:username',component:MyclassifiedsComponent},
-     {path:'add-citydetails/:adminid',component:AddCitydetailsComponent},
-     {path:'post-classifieds/:username',component:PostClassifiedsComponent},
-     {path:'update-citydetails/:adminid',component:UpdateCitydetailsComponent},
-     {path:'delete-classifieds/:adminid',component:DeleteClassifiedsComponent},
-     {path: 'update-classified/:username/:classified', component:UpdateClassifiedComponent},
-     {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent},
-     {path:'delete-city-details/:adminid',component:DeleteCityDetailsComponent},
-     {path:'delete-user/:adminid',component:DeleteUserComponent}
-  
+     {path:'content-page/:username',component:ContentPageComponent, canActivate:[AuthGuardService]},
+     {path:'welcome-admin/:adminid',component:WelcomeAdminComponent, canActivate:[AuthGuardAdminService]},
+     {path:'post-classifieds-admin/:adminid', component:PostClassifiedsAdminComponent, canActivate:[AuthGuardAdminService]},
+     {path:'myclassifieds/:username',component:MyclassifiedsComponent, canActivate:[AuthGuardService]},
+     {path:'add-citydetails/:adminid',component:AddCitydetailsComponent, canActivate:[AuthGuardAdminService]},
+     {path:'post-classifieds/:username',component:PostClassifiedsComponent, canActivate:[AuthGuardService]},
+     {path:'update-citydetails/:adminid',component:UpdateCitydetailsComponent, canActivate:[AuthGuardAdminService]},
+     {path:'delete-classifieds/:adminid',component:DeleteClassifiedsComponent, canActivate:[AuthGuardAdminService]},
+     {path: 'update-classified/:username/:classified', component:UpdateClassifiedComponent, canActivate:[AuthGuardService]},
+     {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent, canActivate:[AuthGuardAdminService]},
+     {path:'delete-city-details/:adminid',component:DeleteCityDetailsComponent, canActivate:[AuthGuardAdminService]},
+     {path:'delete-user/:adminid',component:DeleteUserComponent, canActivate:[AuthGuardAdminService]},
+     {path: '**', redirectTo: '', pathMatch: "full"}
   
  ];
 

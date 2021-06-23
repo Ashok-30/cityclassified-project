@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClassifiedsService } from 'src/app/services/classifieds.service';
 import { AddcitydetailsService } from 'src/app/services/addcitydetails.service';
 import { AdminClassifiedService } from 'src/app/services/admin-classified.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-content-page',
@@ -21,7 +22,7 @@ export class ContentPageComponent implements OnInit {
   cityClassifiedError: boolean = false;
   noResults: boolean = false;
 
-  constructor(private service: ClassifiedsService, private router: ActivatedRoute, private routeTo: Router, private cityInfoService: AddcitydetailsService, private adminClassifiedService: AdminClassifiedService) { }
+  constructor(private service: ClassifiedsService, private router: ActivatedRoute, private routeTo: Router, private cityInfoService: AddcitydetailsService, private adminClassifiedService: AdminClassifiedService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.currentUser = this.router.snapshot.params.username;
@@ -202,6 +203,11 @@ export class ContentPageComponent implements OnInit {
         this.cityClassifiedError = true
         console.log(error)
       })
+  }
+
+  onLogout(){
+    this.authService.logOut();
+    this.routeTo.navigateByUrl('');
   }
 
 }

@@ -2,21 +2,21 @@
     <h1>WELCOME ADMIN</h1>
     <form #welcomeForm="ngForm">
         <table>
-
             <tr>
-
                 <td>
                     <input type="number" class="search" ngModel #classifiedid="ngModel"
                         placeholder="Search by Classified Id" name="searchByClassifiedId" required>
-                    <button class="search" type="button" (click)="onSearchByClassifiedId(classifiedid)" [disabled]="classifiedid.invalid"><i
-                            class="fa fa-search custom-search"></i></button>
+                    <button class="search" type="button" (click)="onSearchByClassifiedId(classifiedid)"
+                        [disabled]="classifiedid.invalid"><i class="fa fa-search custom-search"></i></button>
                 </td>
                 <td><input type="search" class="search" ngModel #category="ngModel" placeholder="Search by Category"
                         name="searchByCategory" required>
-                    <button class="search" type="button" [disabled]="category.invalid" (click)="onSearchByCategory(category)"><i class="fa fa-search custom-search"></i></button>
+                    <button class="search" type="button" [disabled]="category.invalid"
+                        (click)="onSearchByCategory(category)"><i class="fa fa-search custom-search"></i></button>
                 </td>
                 <td>
-                    <button class="btn" (click)="viewControlsToggle()" *ngIf="!viewControls">Back To Controls</button>
+                    <button class="btn" (click)="viewControlsToggle()" *ngIf="!viewControls">BACK TO CONTROLS</button>
+                    <button class="btn" (click)="onLogout()" *ngIf="viewControls">LOGOUT</button>
                 </td>
             </tr>
         </table>
@@ -34,8 +34,8 @@
                     Classified</button>
             </td>
             <td class="column">
-                <button class="btn-1" routerLink="/post-classifieds-admin/{{ currentAdminId }}"
-                    routerLinkActive="active" type="button">Post Admin
+                <button class="btn-1" routerLink="/post-classifieds-admin/{{currentAdminId}}" routerLinkActive="active"
+                    type="button">Post Admin
                     Classified</button>
             </td>
             <td class="column">
