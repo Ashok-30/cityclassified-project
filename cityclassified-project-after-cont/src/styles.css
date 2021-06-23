@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+    font-family: "Arcon";
+    src: url("./assets/Arcon-Regular.otf");
+}
+
+@font-face {
+    font-family: "Tommy";
+    src: url("./assets/MADE TOMMY Bold_PERSONAL USE.otf");
+}
+
+@font-face {
+    font-family: "Tommy Light";
+    src: url("./assets/MADE TOMMY Light_PERSONAL USE.otf");
+}
+
+@font-face {
+    font-family: "Apollo";
+    src: url("./assets/APOLLO.otf");
+}

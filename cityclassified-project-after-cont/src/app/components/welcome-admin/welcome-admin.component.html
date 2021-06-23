@@ -1,0 +1,71 @@
+<body>
+    <h1>WELCOME ADMIN</h1>
+    <form #welcomeForm="ngForm">
+        <table>
+    
+            <tr>
+    
+                <td>
+                    <input type="search" class="search" ngModel #classifiedid="ngModel"
+                        placeholder="Search by Classified Id" name="searchByClassifiedId">
+                    <button class="search" type="button" onclick="" (click)="welcomeadminForm(welcomeForm)"><i
+                            class="fa fa-search custom-search"></i></button>
+                </td>
+                <td><input type="search" class="search" ngModel #category="ngModel" placeholder="Search by Category"
+                        name="searchByCategory">
+                    <button class="search" type="button" onclick=""><i class="fa fa-search custom-search"
+                            (click)="welcomeadminForm(welcomeForm)"></i></button>
+                </td>
+    
+    
+            </tr>
+    
+    
+        </table>
+    </form>
+    <table>
+        <tr>
+            <td class="column">
+                <button class="btn" routerLink="/add-citydetails/{{currentAdminId}}" routerLinkActive="active" type="button" onclick="">Add
+                    City Details</button>
+            </td>
+            <td class="column">
+                <button class="btn" routerLink="/view-classifieds" routerLinkActive="active" type="button" onclick="">View
+                    Classified</button>
+            </td>
+            <td class="column">
+                <button class="btn" routerLink="/post-classifieds-admin/{{ currentAdminId }}" routerLinkActive="active" type="button" onclick="">Post Admin
+                    Classified</button>
+            </td>
+       
+    
+    
+       
+            <td class="column">
+                <button class="btn" routerLink="/update-citydetails/{{currentAdminId}}"routerLinkActive="active" type="button"
+                    onclick="">Update Details</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="column">
+                <button class="btn" routerLink="/delete-city-details/{{currentAdminId}}" routerLinkActive="active" type="button"
+                    onclick="">Delete City Details</button>
+            </td>
+            <td class="column">
+                <button class="btn" routerLink="/delete-classifieds/{{currentAdminId}}" routerLinkActive="active" type="button"
+                    onclick="">Delete Classified</button>
+            </td>
+            <td class="column">
+                <button class="btn" routerLink="/delete-admin-classified/{{currentAdminId}}" routerLinkActive="active" type="button"
+                    onclick="">Delete Admin Classified</button>
+            </td>
+    
+            <td class="column">
+                <button class="btn" routerLink="/delete-user/{{currentAdminId}}" routerLinkActive="active" type="button"
+                    onclick="">Delete User 
+                </button>
+            </td>
+            
+        </tr>
+    </table>
+    </body>

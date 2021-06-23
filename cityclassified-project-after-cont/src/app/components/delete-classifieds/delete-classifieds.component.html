@@ -1,0 +1,22 @@
+<body>
+    <fieldset class="userinput">
+        <legend>Delete Classified</legend>
+        <form #deleteForm="ngForm" (ngSubmit)="onDelete(deleteForm)" >
+            <table>
+
+                <tr>
+                    <td><label for="classifiedId">Enter Classified Id</label> </td>
+                    <td><input ngModel class="element" type="text" name="classifiedId" placeholder="Enter Classified Id"
+                            required >
+
+                </tr>
+               
+                <tr>
+                    <td></td>
+                    <td><input class="submit" type="submit" value="Delete" ></td>
+                </tr>
+
+            </table>
+        </form>
+    </fieldset>
+</body>
