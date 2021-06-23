@@ -32,7 +32,7 @@ import { DeleteUserComponent } from "./components/delete-user/delete-user.compon
      {path:'myclassifieds/:username',component:MyclassifiedsComponent},
      {path:'add-citydetails/:adminid',component:AddCitydetailsComponent},
      {path:'post-classifieds/:username',component:PostClassifiedsComponent},
-     {path:'update-citydetails',component:UpdateCitydetailsComponent},
+     {path:'update-citydetails/:adminid',component:UpdateCitydetailsComponent},
      {path:'delete-classifieds/:adminid',component:DeleteClassifiedsComponent},
      {path: 'update-classified/:username/:classified', component:UpdateClassifiedComponent},
      {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent},

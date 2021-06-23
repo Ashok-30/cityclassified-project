@@ -1,42 +1,164 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>View Classifieds</title>
-
-</head>
-
 <body>
     <h1>VIEW CLASSIFIEDS</h1>
     <div class="dropdown">
         <form #viewForm="ngForm">
-        <select name="cities" id="cities" class="custom-select" >
-            <option value="none" selected disabled hidden ngModel #view="ngModel" >
-                Choose City
-            </option>
-            <option value="Chennai">Chennai</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Coimbatore">Coimbatore</option>
-            <option value="Mumbai">Mumbai</option>
-        </select>
-    </form>
+            <select name="cities" id="cities" class="custom-select" (click)="getOverallClassifiedsForCity($event)">
+                <option value=1 selected>Chennai</option>
+                <option value=2>Bangalore</option>
+                <option value=3>Coimbatore</option>
+                <option value=4>Mumbai</option>
+            </select>
+        </form>
     </div>
-    <div class="classifieds">
-        Classified 1
+    <div *ngIf="cityClassifiedError" class="error-msg">Error in getting classifieds from server...</div>
+    <div *ngIf="noResults" class="not-found-msg"><i class="fa fa-frown-o" aria-hidden="true"></i> No results found ...
     </div>
-    <div class="classifieds">
-        Classifieds 2
-    </div>
-    <div class="classifieds">
-        Classifieds 3
-    </div>
+    <table class="admin-classifieds" *ngFor="let classified of cityAdminClassifieds">
+        <tr>
+            <td>
+                Classified Id
+            </td>
+            <td>
+                {{ classified?.id }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Heading
+            </td>
+            <td>
+                {{ classified?.heading }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description
+            </td>
+            <td>
+                {{ classified?.description }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category
+            </td>
+            <td>
+                {{ classified?.category }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price
+            </td>
+            <td>
+                Rs. {{classified?.price }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Mail
+            </td>
+            <td>
+                {{ classified?.contactMail }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Number
+            </td>
+            <td>
+                {{ classified?.contactNumber }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Posted Date
+            </td>
+            <td>
+                {{ classified?.postedDate | date : 'medium' }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                {{ classified?.city?.cityName }}
+            </td>
+        </tr>
+    </table>
+    <table class="city-classifieds" *ngFor="let classified of cityClassifieds">
+        <tr>
+            <td>
+                Classified Id
+            </td>
+            <td>
+                {{ classified?.id }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Heading
+            </td>
+            <td>
+                {{ classified?.heading }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description
+            </td>
+            <td>
+                {{ classified?.description }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category
+            </td>
+            <td>
+                {{ classified?.category }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price
+            </td>
+            <td>
+                Rs. {{classified?.price }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Mail
+            </td>
+            <td>
+                {{ classified?.contactMail }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contact Number
+            </td>
+            <td>
+                {{ classified?.contactNumber }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Posted Date
+            </td>
+            <td>
+                {{ classified?.postedDate | date : 'medium' }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                {{ classified?.city?.cityName }}
+            </td>
+        </tr>
+    </table>
 </body>
-
-</html>
