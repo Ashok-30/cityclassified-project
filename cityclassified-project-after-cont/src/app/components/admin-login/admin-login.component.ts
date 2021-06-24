@@ -23,19 +23,26 @@ export class AdminLoginComponent implements OnInit {
 
   onSubmit(adminForm: NgForm) {
     this.loading = true;
-    this.authService.authenticateAdmin(adminForm.value.adminname, adminForm.value.password)
+    this.incorrectPassword = false;
 
-    if (this.authService.isAdminLoggedIn()) {
-      this.service.getAdminByAdminName(adminForm.value.adminname)
-        .subscribe(response => {
-          this.adminid = (response as Admin).id
-          this.router.navigateByUrl('/welcome-admin/' + this.adminid);
-        })
-    }
-    else {
+    const promise = this.authService.authenticateAdmin(adminForm.value.adminname, adminForm.value.password)
+
+    promise.then(() => {
+      if (this.authService.isAdminLoggedIn()) {
+        this.service.getAdminByAdminName(adminForm.value.adminname)
+          .subscribe(response => {
+            this.adminid = (response as Admin).id
+            this.router.navigateByUrl('/welcome-admin/' + this.adminid);
+          })
+      }
+      else {
+        this.incorrectPassword = true;
+        this.loading = false;
+      }
+    }).catch(() => {
       this.incorrectPassword = true;
       this.loading = false;
-    }
+    })
   }
 
   toggle() {

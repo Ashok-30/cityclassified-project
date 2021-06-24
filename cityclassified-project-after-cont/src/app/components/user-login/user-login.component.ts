@@ -15,21 +15,28 @@ export class UserLoginComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private service: UserService, private router: Router, private authService: AuthenticationService) { }
- 
+
   ngOnInit(): void {
   }
 
-  onSubmit(userForm:NgForm){
+  onSubmit(userForm: NgForm) {
     this.loading = true;
-    this.authService.authenticate(userForm.value.username, userForm.value.password)
-    if (this.authService.isUserLoggedIn()){
-      this.loading = false
-      this.router.navigateByUrl('/content-page/' + userForm.value.username)
-    }
-    else{
+    this.incorrectPassword = false;
+    const promise = this.authService.authenticate(userForm.value.username, userForm.value.password)
+
+    promise.then(() => {
+      if (this.authService.isUserLoggedIn(userForm.value.username)) {
+        this.loading = false
+        this.router.navigateByUrl('/content-page/' + userForm.value.username)
+      }
+      else {
+        this.incorrectPassword = true
+        this.loading = false
+      }
+    }).catch(() => {
       this.incorrectPassword = true
       this.loading = false
-    }
+    })
   }
 
   toggle() {

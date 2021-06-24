@@ -10,34 +10,38 @@ export class AuthenticationService {
   constructor(private userService: UserService, private adminService: AdminService) { }
 
   authenticate(username: string, password: string) {
-    this.userService.getPassword(username)
-      .subscribe(response => {
-        if (password === (response as string[])[0]) {
-          sessionStorage.setItem('username', username)
-          return true;
-        }
-        else {
-          return false;
-        }
-      }, error => {
-        console.log(error)
-      })
+    return new Promise((resolve, reject) => {
+      this.userService.getPassword(username)
+        .subscribe(response => {
+          if (password === (response as string[])[0]) {
+            sessionStorage.setItem('username', username)
+            resolve(true)
+          }
+          else {
+            reject(false)
+          }
+        }, error => {
+          console.log(error)
+        })
+    })
   }
 
   authenticateAdmin(adminname: string, password: string) {
-    this.adminService.getAdminPassword(adminname)
+    return new Promise((resolve, reject) => {
+      this.adminService.getAdminPassword(adminname)
       .subscribe(response => {
-        if (password === (response as string[])[0]){
+        if (password === (response as string[])[0]) {
           sessionStorage.setItem('adminname', adminname)
-          return true
+          resolve(true)
         }
         else {
-          return false
+          reject(false)
         }
       }, error => {
         alert("An error occured")
         console.log(error)
       })
+    })
   }
 
   isAdminLoggedIn() {
@@ -46,10 +50,9 @@ export class AuthenticationService {
     return !(admin === null)
   }
 
-  isUserLoggedIn() {
+  isUserLoggedIn(username: string) {
     let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+    return (user === username)
   }
 
   logOut() {
