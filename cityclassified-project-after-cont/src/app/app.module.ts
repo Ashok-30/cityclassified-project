@@ -26,7 +26,7 @@ import { UpdateClassifiedComponent } from './components/update-classified/update
 import { DeleteAdminClassifiedComponent } from './components/delete-admin-classified/delete-admin-classified.component';
 import { DeleteCityDetailsComponent } from './components/delete-city-details/delete-city-details.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
-import { NewPasswordComponent } from './new-password/new-password.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 @NgModule({
   imports: [BrowserModule,
     AppRoutingModule,

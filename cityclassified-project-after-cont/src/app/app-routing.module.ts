@@ -20,7 +20,7 @@ import { DeleteCityDetailsComponent } from "./components/delete-city-details/del
 import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { AuthGuardAdminService } from "./services/auth-guard-admin.service";
-import { NewPasswordComponent } from "./new-password/new-password.component";
+import { NewPasswordComponent } from "./components/new-password/new-password.component";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
