@@ -11,7 +11,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="adminname.invalid && (adminname.dirty || adminname.touched)">Name is mandatory
+                        <mat-error *ngIf="adminname.invalid && adminname.touched">Name is mandatory
                         </mat-error>
                     </td>
                 </tr>
@@ -24,9 +24,8 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password is
+                        <mat-error *ngIf="password.invalid && password.touched">Password is
                             mandatory
-
                         </mat-error>
                         <div id="incorrect-password" *ngIf="incorrectPassword">Incorrect Password</div>
                         <div class="loader" *ngIf="loading">Loading...</div>
@@ -35,7 +34,6 @@
 
                 <tr>
                     <td>
-                        <a routerLink="/forgot-password" routerLinkActive="active">Forgot Password?</a>
                     </td>
                     <td><input class="submit" type="submit" value="Submit" (click)="onSubmit(adminForm)"></td>
                 </tr>

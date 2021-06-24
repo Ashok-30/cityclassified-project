@@ -17,7 +17,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">Password is mandatory
+                    <mat-error *ngIf="city.invalid && city.touched">Please select a city
                     </mat-error>
                 </td>
             </tr>
@@ -29,7 +29,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="heading.invalid && (heading.dirty || heading.touched)">Enter Heading
+                    <mat-error *ngIf="heading.invalid && heading.touched">Heading cannot be blank
                     </mat-error>
                 </td>
             </tr>
@@ -41,7 +41,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="category.invalid && (category.dirty || category.touched)">Enter Category
+                    <mat-error *ngIf="category.invalid && category.touched">Category cannot be blank
                     </mat-error>
                 </td>
             </tr>
@@ -53,8 +53,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">Enter
-                        Description</mat-error>
+                    <mat-error *ngIf="description.invalid && description.touched">Description cannot be blank</mat-error>
                 </td>
             </tr>
             <tr>
@@ -65,7 +64,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="price.invalid && (price.dirty || price.touched)">Enter Price</mat-error>
+                    <mat-error *ngIf="price.invalid && price.touched">Please enter a valid price</mat-error>
                 </td>
             </tr>
             <tr>
@@ -76,8 +75,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)">Enter Phone
-                        Number</mat-error>
+                    <mat-error *ngIf="phonenumber.invalid && phonenumber.touched">Phone number must be valid and have 10 digits</mat-error>
                 </td>
             </tr>
             <tr>
@@ -88,7 +86,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">Enter E-mail</mat-error>
+                    <mat-error *ngIf="email.invalid && email.touched">E-mail Id is mandatory</mat-error>
                 </td>
             </tr>
             <tr>

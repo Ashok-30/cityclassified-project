@@ -30,7 +30,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">Choose City</mat-error>
+                        <mat-error *ngIf="city.invalid && city.touched">Please select a City</mat-error>
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="type.invalid && (type.dirty || type.touched)">Choose Type</mat-error>
+                        <mat-error *ngIf="type.invalid && type.touched">Please choose a Type</mat-error>
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +57,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="heading.invalid && (heading.dirty || heading.touched)">Enter Heading
+                        <mat-error *ngIf="heading.invalid && heading.touched">Heading cannot be blank
                         </mat-error>
                     </td>
                 </tr>
@@ -70,8 +70,8 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="description.invalid && (description.dirty || description.touched)">Enter
-                            Description</mat-error>
+                        <mat-error *ngIf="description.invalid && description.touched">Description cannot be blank
+                        </mat-error>
                     </td>
                 </tr>
                 <tr>
@@ -83,8 +83,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="address.invalid && (address.dirty || address.touched)">Enter Address
-                        </mat-error>
+                        <mat-error *ngIf="address.invalid && address.touched">Address cannot be blank</mat-error>
                     </td>
                 </tr>
                 <tr>
@@ -95,8 +94,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="rating.invalid && (rating.dirty || rating.touched)">Give a valid rating
-                        </mat-error>
+                        <mat-error *ngIf="rating.invalid && rating.touched">Give a valid rating</mat-error>
                     </td>
                 </tr>
                 <tr>

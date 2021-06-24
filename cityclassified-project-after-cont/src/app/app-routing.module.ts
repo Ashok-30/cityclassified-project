@@ -20,6 +20,7 @@ import { DeleteCityDetailsComponent } from "./components/delete-city-details/del
 import { DeleteUserComponent } from "./components/delete-user/delete-user.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { AuthGuardAdminService } from "./services/auth-guard-admin.service";
+import { NewPasswordComponent } from "./new-password/new-password.component";
 
  const routes: Routes=[
      {path:'admin-login', component:AdminLoginComponent},
@@ -40,6 +41,7 @@ import { AuthGuardAdminService } from "./services/auth-guard-admin.service";
      {path:'delete-admin-classified/:adminid',component:DeleteAdminClassifiedComponent, canActivate:[AuthGuardAdminService]},
      {path:'delete-city-details/:adminid',component:DeleteCityDetailsComponent, canActivate:[AuthGuardAdminService]},
      {path:'delete-user/:adminid',component:DeleteUserComponent, canActivate:[AuthGuardAdminService]},
+     {path: 'new-password/:userObj', component:NewPasswordComponent},
      {path: '**', redirectTo: '', pathMatch: "full"}
   
  ];

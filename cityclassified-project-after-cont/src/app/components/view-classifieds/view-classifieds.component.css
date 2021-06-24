@@ -1,5 +1,4 @@
-
-body{
+body {
     padding: 30px;
 }
 
@@ -23,50 +22,48 @@ h1 {
     padding: 10px;
 }
 
-table.admin-classifieds, table.city-classifieds{
+table.admin-classifieds, table.city-classifieds {
     margin: auto;
     width: 50%;
     padding-right: 0%;
     border-collapse: collapse;
-    border: 2px solid black;
-    font-family: 'Prompt', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1.1px;
+    border: 8px solid #DEB887;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.2px;
+    color: brown;
     font-size: 1.1em;
     margin-bottom: 35px;
     margin-top: 35px;
 }
 
-table.admin-classifieds{
-    border: 4px solid transparent;
-    animation-name: dim;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+i{
+    position: absolute;
+    color: #FFC42E;
+    font-size: 25px;
+    padding: 5px;
 }
 
-@keyframes dim{
-    25%{
-        border-color: teal;
-    }
-    50%{
-        border-color: turquoise;
-    }
-    75%{
-        border-color: teal
-    }
-}
-
-table.admin-classifieds>tr>td, table.city-classifieds>tr>td{
+table.admin-classifieds>tr>td, table.city-classifieds>tr>td {
     padding: 12px;
     padding-right: 30px;
     padding-left: 30px;
-    
 }
 
-table.admin-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
-table.city-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
+table :hover {
+    transform: scale(1.01);
+}
 
-.error-msg{
+table.admin-classifieds>tr:nth-child(odd) {
+    background-color: #DEB887;
+    color: white;
+}
+
+table.city-classifieds>tr:nth-child(even) {
+    background-color: #DEB887;
+    color: white;
+}
+
+.error-msg {
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -78,7 +75,7 @@ table.city-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
     padding-top: 70px;
 }
 
-.not-found-msg{
+.not-found-msg {
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -89,4 +86,3 @@ table.city-classifieds>tr:nth-child(even) {background-color: #f2f2f2;}
     padding: 30px;
     padding-top: 70px;
 }
-

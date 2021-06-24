@@ -4,18 +4,15 @@
         <form #userForm="ngForm">
             <table>
                 <tr>
-
                     <td><label for="username">Enter Username</label> </td>
                     <td><input class="element" type="text" name="username" ngModel #username="ngModel"
                             placeholder="Enter Username" required>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username is
+                        <mat-error *ngIf="username.invalid && username.touched">Username is
                             mandatory</mat-error>
                     </td>
                 </tr>
@@ -30,7 +27,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">Password is
+                        <mat-error *ngIf="password.invalid && password.touched">Password is
                             mandatory</mat-error>
                             <div id="incorrect-password" *ngIf="incorrectPassword">Incorrect Password</div>
                             <div class="loader" *ngIf="loading">Loading...</div>

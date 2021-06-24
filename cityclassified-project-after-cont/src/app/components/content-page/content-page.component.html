@@ -114,6 +114,7 @@
             <div *ngIf="cityClassifiedError" class="error-msg">Error in getting classifieds from server...</div>
             <div *ngIf="noResults" class="not-found-msg"><i class="fa fa-frown-o" aria-hidden="true"></i> No results found ... </div>
             <table class="admin-classifieds" *ngFor="let classified of cityAdminClassifieds">
+                <i class="fas fa-award"></i>
                 <tr>
                     <td>
                         Classified Id

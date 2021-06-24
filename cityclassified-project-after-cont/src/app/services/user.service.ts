@@ -11,11 +11,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getPassword(username: string){
+  getPassword(username: string) {
     return this.http.get(this.apiUrl + '/users/password/' + username);
   }
-  deleteUser(userName: string){
-    return this.http.delete(this.apiUrl + '/users/' + userName,  {responseType: 'text'});
+
+  getUser(userName: string) {
+    return this.http.get(this.apiUrl + '/users/' + userName)
+  }
+
+  updateUser(user: any) {
+    return this.http.put(this.apiUrl + '/users/user', user)
+  }
+
+  deleteUser(userName: string) {
+    return this.http.delete(this.apiUrl + '/users/' + userName, { responseType: 'text' });
   }
 
 }

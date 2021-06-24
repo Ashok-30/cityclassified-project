@@ -1,4 +1,3 @@
-
 h1 {
     font-family: 'Montserrat', sans-serif;
     color: chocolate;
@@ -93,10 +92,10 @@ table.city-classifieds {
     width: 50%;
     padding-right: 0%;
     border-collapse: collapse;
-    border: 2px solid black;
-    font-family: 'Prompt', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1.1px;
+    border: 8px solid #DEB887;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1.2px;
+    color: brown;
     font-size: 1.1em;
     margin-bottom: 35px;
     margin-top: 35px;
@@ -108,10 +107,14 @@ table.city-classifieds>tr>td {
     padding-left: 30px;
 }
 
-table.city-classifieds>tr:nth-child(even) {
-    background-color: #f2f2f2;
+table.city-classifieds :hover {
+    transform: scale(1.01);
 }
 
+table.city-classifieds>tr:nth-child(even) {
+    background-color: #DEB887;
+    color: white;
+}
 
 .btn-1 {
     cursor: pointer;
@@ -125,10 +128,9 @@ table.city-classifieds>tr:nth-child(even) {
     color: #ffffff;
     background-color: #b5651d;
     font-family: 'Josefin Sans', sans-serif;
-  }
-  
-.btn-1:hover{
+}
+
+.btn-1:hover {
     border-color: brown;
     transform: scale(1.1);
 }
-  

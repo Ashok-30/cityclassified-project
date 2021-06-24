@@ -14,7 +14,7 @@
                 </td>
                
             </tr>
-            <tr><td></td><td><mat-error *ngIf="city.invalid && (city.dirty || city.touched)" >Choose City</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="city.invalid && city.touched">Please select a city</mat-error></td></tr>
             <tr>
                 <td><label for="type">Choose Type</label> </td>
                 <td><select class="element custom-select" id="Choose Type" name="infoType" required ngModel #type="ngModel">
@@ -24,30 +24,30 @@
                     </select>
                 </td>
             </tr>
-            <tr><td></td><td><mat-error *ngIf="type.invalid && (type.dirty || type.touched)" >Choose Type</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="type.invalid && type.touched" >Please choose a type</mat-error></td></tr>
             <tr>
                 <td><label for="heading">Enter Heading</label></td>
                 <td><input class="element" type="textarea" name="heading" placeholder="Enter Heading" required ngModel #heading="ngModel"></td>
             </tr>
-            <tr><td></td><td><mat-error *ngIf="heading.invalid && (heading.dirty || heading.touched)" >Enter Heading</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="heading.invalid && heading.touched">Heading field cannot be blank</mat-error></td></tr>
             <tr>
                 <td><label for="description">Enter Description</label></td>
                 <td><textarea class="element" type="textarea" name="description" placeholder="Enter Description" rows="4"
                         cols="50" required ngModel #description="ngModel"></textarea></td>
             </tr>
-            <tr><td></td><td><mat-error *ngIf="description.invalid && (description.dirty || description.touched)" >Enter Description</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="description.invalid && description.touched" >Description cannot be blank</mat-error></td></tr>
             <tr>
                 <td><label for="address">Enter Address</label></td>
                 <td><textarea class="element" type="textarea" name="address" placeholder="Enter Address" rows="4" cols="50"
                         required ngModel #address="ngModel"></textarea></td>
             </tr>
-            <tr><td></td><td><mat-error *ngIf="address.invalid && (address.dirty || address.touched)" >Enter Address</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="address.invalid && address.touched">Address cannot be blank</mat-error></td></tr>
             <tr>
                 <td><label for="rating">Enter Rating</label></td>
                 <td><input class="element" type="number" name="rating" placeholder="Enter Rating"  max="5" step="1"
                         required ngModel #rating="ngModel"></td>
             </tr>
-            <tr><td></td><td><mat-error *ngIf="rating.invalid && (rating.dirty || rating.touched)">Give a valid rating</mat-error></td></tr>
+            <tr><td></td><td><mat-error *ngIf="rating.invalid && rating.touched">Please select a valid rating</mat-error></td></tr>
             
             <tr>
                 <td></td>
