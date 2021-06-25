@@ -9,16 +9,18 @@ body {
 .search {
     padding: 5px;
     margin: 10px 10px 10px 10px;
-    border: 2px solid #368BC1;
+    border: 2px solid chocolate;
 }
 
 input.search:focus {
     outline: none;
-    border-color: teal;
+    border-color: chocolate;
 }
 
 label {
     font-family: 'Josefin Sans', sans-serif;
+    font-weight: normal;
+    color: chocolate;
 }
 
 i.custom-search {
@@ -26,8 +28,8 @@ i.custom-search {
 }
 
 button.search {
-    background-color: #368BC1;
-    border: 2px solid teal;
+    background-color: chocolate;
+    border: 2px solid brown;
     padding: 5px 12px 5px 12px;
 }
 
@@ -36,7 +38,7 @@ button.search:hover {
 }
 
 button.search:disabled{
-    background-color: grey;
+    background-color: lightgray;
 }
 
 button.btn {
@@ -44,10 +46,10 @@ button.btn {
     margin-left: 10px;
     margin-right: 10px;
     font-family: 'Tommy', sans-serif;
-    border: 3px solid #368BC1;
+    border: 3px solid chocolate;
     border-radius: 25px;
     background-color: white;
-    color: #368BC1;
+    color: chocolate;
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 5px;
@@ -67,14 +69,18 @@ button.btn {
     letter-spacing: 1.2px;
     font-family: 'Varela Round', sans-serif;
     font-size: 2em;
-    color: #368BC1;
-    border-bottom: solid #368BC1;
+    color: chocolate;
+    border-bottom: solid chocolate;
     margin-right: 30px;
 }
 
 .custom-select {
     font-family: 'Josefin Sans', sans-serif;
     padding: 5px;
+    background: white;
+    outline: none;
+    color: chocolate;
+    border: 2px solid chocolate;
 }
 
 table.nav-bar {
@@ -97,26 +103,32 @@ table.nav-bar {
 
 table.city-info {
     margin: auto;
-    width: 35%;
+    width: 50%;
     padding-right: 0%;
     border-collapse: collapse;
-    border: 3px solid #00ffff;
-    font-family: 'Apollo', Times, serif;
-    letter-spacing: 1.1px;
-    font-size: 1.2em;
+    border: 8px solid #DEB887;
+    font-family: 'Apollo', sans-serif;
+    letter-spacing: 1.2px;
+    color: brown;
+    font-size: 1.1em;
     margin-bottom: 35px;
     margin-top: 35px;
-    letter-spacing: 1.2px;
-    background-color: black;
-    color: white;
 }
 
 table.city-info>tr>td {
     padding: 12px;
     padding-right: 10px;
     padding-left: 30px;
-    border: 1.5px solid white;
     
+}
+
+table.city-info :hover{
+    transform: scale(1.01);
+}
+
+table.city-info>tr:nth-child(even) {
+    background-color: #DEB887;
+    color: white;
 }
 
 table.type-options {
