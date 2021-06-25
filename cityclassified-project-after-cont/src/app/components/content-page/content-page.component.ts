@@ -138,7 +138,6 @@ export class ContentPageComponent implements OnInit {
           this.cityAdminClassifieds = response as string[]
         }
         else{
-          this.noResults = true
           this.cityAdminClassifieds = []
         }
       }, error => {
