@@ -37,6 +37,7 @@ export class ForgotPasswordComponent implements OnInit {
           else {
             this.loading = false
             this.invalidCredentials = true
+            this.userNotRegistered = false
           }
         }
         else {
